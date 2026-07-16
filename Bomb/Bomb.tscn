@@ -93,6 +93,7 @@ animations = [{
 }]
 
 [node name="Bomb" type="AnimatableBody2D" unique_id=839725357]
+collision_layer = 2147483648
 script = ExtResource("1_a4im0")
 explosion_scene = ExtResource("2_lmso4")
 
