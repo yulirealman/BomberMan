@@ -20,6 +20,7 @@ size = Vector2(16, 16)
 [node name="UnbreakWall" type="AnimatableBody2D" unique_id=1583826884]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_8th70")
+collision_layer = 2147483648
 script = ExtResource("1_ehycy")
 
 [node name="MyBrick" type="Sprite2D" parent="." unique_id=97237066]

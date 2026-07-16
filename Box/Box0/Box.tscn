@@ -26,6 +26,7 @@ size = Vector2(16, 16)
 
 [node name="Box" type="AnimatableBody2D" unique_id=1583826884]
 y_sort_enabled = true
+collision_layer = 2147483648
 script = ExtResource("1_bybq8")
 power_item_scene = ExtResource("2_wybss")
 bomb_item_scene = ExtResource("3_fkttd")
