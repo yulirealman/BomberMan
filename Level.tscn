@@ -1,0 +1,249 @@
+[gd_scene format=4 uid="uid://cd662smbv1siu"]
+
+[ext_resource type="Script" uid="uid://c8txogy6iw6jy" path="res://Level.gd" id="1_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://buo5usmy57fj4" path="res://Box.tscn" id="3_oi3di"]
+[ext_resource type="TileSet" uid="uid://bk7elf3nq34dj" path="res://tiles.tres" id="4_0b4ue"]
+[ext_resource type="Script" uid="uid://bs8cpb8kvh1uk" path="res://GridMapManager.gd" id="5_m3clv"]
+[ext_resource type="PackedScene" uid="uid://diygwv781k3tm" path="res://Player/Player.tscn" id="6_mxnmf"]
+[ext_resource type="PackedScene" uid="uid://bsv8n4jctavxc" path="res://UnbreakWall.tscn" id="7_mxnmf"]
+
+[node name="Level" type="Node2D" unique_id=599285493]
+y_sort_enabled = true
+script = ExtResource("1_0b4ue")
+
+[node name="TilemapLayers" type="Node2D" parent="." unique_id=633513492]
+y_sort_enabled = true
+
+[node name="Ground" type="TileMapLayer" parent="TilemapLayers" unique_id=424857973]
+modulate = Color(0.39215687, 0.8352941, 1, 1)
+texture_filter = 5
+tile_map_data = PackedByteArray("AAALAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAADAAAAAQAAAAAAAAACAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAABAAgAAQAAAAAAAAABAAkAAQAAAAAAAAALAAgAAQAAAAAAAAALAAcAAQAAAAAAAAALAAYAAQAAAAAAAAALAAUAAQAAAAAAAAALAAQAAQAAAAAAAAALAAMAAQAAAAAAAAALAAIAAQAAAAAAAAALAAEAAQAAAAAAAAALAAkAAQAAAAAAAAAKAAkAAQAAAAAAAAAJAAkAAQAAAAAAAAAIAAkAAQAAAAAAAAAHAAkAAQAAAAAAAAAGAAkAAQAAAAAAAAAFAAkAAQAAAAAAAAAEAAkAAQAAAAAAAAADAAkAAQAAAAAAAAACAAkAAQAAAAAAAAACAAgAAQAAAAAAAAACAAcAAQAAAAAAAAACAAYAAQAAAAAAAAACAAUAAQAAAAAAAAACAAQAAQAAAAAAAAACAAMAAQAAAAAAAAACAAIAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAADAAgAAQAAAAAAAAAEAAgAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAIAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAHAAUAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAHAAcAAQAAAAAAAAAHAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAIAAUAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAMAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAcAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAEAAQAAAAAAAAAEAAUAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAYAAQAAAAAAAAA=")
+tile_set = ExtResource("4_0b4ue")
+
+[node name="GridMapManager" type="Node" parent="." unique_id=548219856]
+script = ExtResource("5_m3clv")
+metadata/_custom_type_script = "uid://bs8cpb8kvh1uk"
+
+[node name="BombsContainer" type="Node2D" parent="." unique_id=1261685709]
+y_sort_enabled = true
+
+[node name="BoxesContainer" type="Node2D" parent="." unique_id=865225167]
+y_sort_enabled = true
+
+[node name="Box2" parent="BoxesContainer" unique_id=1516930982 instance=ExtResource("3_oi3di")]
+position = Vector2(56, 56)
+
+[node name="Box3" parent="BoxesContainer" unique_id=1583826884 instance=ExtResource("3_oi3di")]
+position = Vector2(88, 56)
+
+[node name="Box4" parent="BoxesContainer" unique_id=561799776 instance=ExtResource("3_oi3di")]
+position = Vector2(40, 88)
+
+[node name="Box5" parent="BoxesContainer" unique_id=284378170 instance=ExtResource("3_oi3di")]
+position = Vector2(56, 88)
+
+[node name="Box8" parent="BoxesContainer" unique_id=165066444 instance=ExtResource("3_oi3di")]
+position = Vector2(8, 40)
+
+[node name="Box9" parent="BoxesContainer" unique_id=500082288 instance=ExtResource("3_oi3di")]
+position = Vector2(8, 56)
+
+[node name="Box10" parent="BoxesContainer" unique_id=716453163 instance=ExtResource("3_oi3di")]
+position = Vector2(8, 72)
+
+[node name="Box6" parent="BoxesContainer" unique_id=1684422257 instance=ExtResource("3_oi3di")]
+position = Vector2(88, 88)
+
+[node name="Box11" parent="BoxesContainer" unique_id=1428908174 instance=ExtResource("3_oi3di")]
+position = Vector2(40, 120)
+
+[node name="Box12" parent="BoxesContainer" unique_id=355115427 instance=ExtResource("3_oi3di")]
+position = Vector2(56, 120)
+
+[node name="Box13" parent="BoxesContainer" unique_id=800648339 instance=ExtResource("3_oi3di")]
+position = Vector2(88, 120)
+
+[node name="Box14" parent="BoxesContainer" unique_id=1933298438 instance=ExtResource("3_oi3di")]
+position = Vector2(120, 120)
+
+[node name="Box15" parent="BoxesContainer" unique_id=1916480992 instance=ExtResource("3_oi3di")]
+position = Vector2(136, 120)
+
+[node name="Box16" parent="BoxesContainer" unique_id=764661209 instance=ExtResource("3_oi3di")]
+position = Vector2(168, 120)
+
+[node name="Box7" parent="BoxesContainer" unique_id=1292665927 instance=ExtResource("3_oi3di")]
+position = Vector2(104, 56)
+
+[node name="WallsContainer" type="Node2D" parent="." unique_id=1273587926]
+y_sort_enabled = true
+texture_filter = 5
+
+[node name="UnbreakWall" parent="WallsContainer" unique_id=616105511 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, -8)
+
+[node name="UnbreakWall2" parent="WallsContainer" unique_id=66845065 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 8)
+
+[node name="UnbreakWall49" parent="WallsContainer" unique_id=1828511634 instance=ExtResource("7_mxnmf")]
+position = Vector2(72, 88)
+
+[node name="UnbreakWall52" parent="WallsContainer" unique_id=1016495103 instance=ExtResource("7_mxnmf")]
+position = Vector2(72, 120)
+
+[node name="UnbreakWall53" parent="WallsContainer" unique_id=1459304649 instance=ExtResource("7_mxnmf")]
+position = Vector2(104, 120)
+
+[node name="UnbreakWall50" parent="WallsContainer" unique_id=1151296964 instance=ExtResource("7_mxnmf")]
+position = Vector2(72, 56)
+
+[node name="UnbreakWall51" parent="WallsContainer" unique_id=923271024 instance=ExtResource("7_mxnmf")]
+position = Vector2(104, 88)
+
+[node name="UnbreakWall3" parent="WallsContainer" unique_id=939872172 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 24)
+
+[node name="UnbreakWall4" parent="WallsContainer" unique_id=1341523219 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 40)
+
+[node name="UnbreakWall5" parent="WallsContainer" unique_id=288432495 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 56)
+
+[node name="UnbreakWall6" parent="WallsContainer" unique_id=886199596 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 72)
+
+[node name="UnbreakWall7" parent="WallsContainer" unique_id=190138337 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 88)
+
+[node name="UnbreakWall8" parent="WallsContainer" unique_id=2119020398 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 104)
+
+[node name="UnbreakWall9" parent="WallsContainer" unique_id=982763752 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 120)
+
+[node name="UnbreakWall10" parent="WallsContainer" unique_id=1189139274 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 136)
+
+[node name="UnbreakWall11" parent="WallsContainer" unique_id=1170454683 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 152)
+
+[node name="UnbreakWall12" parent="WallsContainer" unique_id=1465565796 instance=ExtResource("7_mxnmf")]
+position = Vector2(-8, 168)
+
+[node name="UnbreakWall27" parent="WallsContainer" unique_id=510366749 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, -8)
+
+[node name="UnbreakWall28" parent="WallsContainer" unique_id=38316713 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 8)
+
+[node name="UnbreakWall29" parent="WallsContainer" unique_id=784492963 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 24)
+
+[node name="UnbreakWall30" parent="WallsContainer" unique_id=946508943 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 40)
+
+[node name="UnbreakWall31" parent="WallsContainer" unique_id=844698963 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 56)
+
+[node name="UnbreakWall32" parent="WallsContainer" unique_id=1608153733 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 72)
+
+[node name="UnbreakWall33" parent="WallsContainer" unique_id=1250947860 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 88)
+
+[node name="UnbreakWall34" parent="WallsContainer" unique_id=1304069065 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 104)
+
+[node name="UnbreakWall35" parent="WallsContainer" unique_id=565616678 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 120)
+
+[node name="UnbreakWall36" parent="WallsContainer" unique_id=211544711 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 136)
+
+[node name="UnbreakWall37" parent="WallsContainer" unique_id=1039377127 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 152)
+
+[node name="UnbreakWall13" parent="WallsContainer" unique_id=429623375 instance=ExtResource("7_mxnmf")]
+position = Vector2(8, 168)
+
+[node name="UnbreakWall14" parent="WallsContainer" unique_id=945362852 instance=ExtResource("7_mxnmf")]
+position = Vector2(24, 168)
+
+[node name="UnbreakWall15" parent="WallsContainer" unique_id=464143370 instance=ExtResource("7_mxnmf")]
+position = Vector2(40, 168)
+
+[node name="UnbreakWall16" parent="WallsContainer" unique_id=1585743938 instance=ExtResource("7_mxnmf")]
+position = Vector2(56, 168)
+
+[node name="UnbreakWall17" parent="WallsContainer" unique_id=1988320429 instance=ExtResource("7_mxnmf")]
+position = Vector2(72, 168)
+
+[node name="UnbreakWall18" parent="WallsContainer" unique_id=221345468 instance=ExtResource("7_mxnmf")]
+position = Vector2(88, 168)
+
+[node name="UnbreakWall19" parent="WallsContainer" unique_id=1256713351 instance=ExtResource("7_mxnmf")]
+position = Vector2(104, 168)
+
+[node name="UnbreakWall20" parent="WallsContainer" unique_id=727256321 instance=ExtResource("7_mxnmf")]
+position = Vector2(120, 168)
+
+[node name="UnbreakWall21" parent="WallsContainer" unique_id=1215757954 instance=ExtResource("7_mxnmf")]
+position = Vector2(136, 168)
+
+[node name="UnbreakWall22" parent="WallsContainer" unique_id=1939150689 instance=ExtResource("7_mxnmf")]
+position = Vector2(152, 168)
+
+[node name="UnbreakWall23" parent="WallsContainer" unique_id=1850099564 instance=ExtResource("7_mxnmf")]
+position = Vector2(168, 168)
+
+[node name="UnbreakWall24" parent="WallsContainer" unique_id=1608290005 instance=ExtResource("7_mxnmf")]
+position = Vector2(184, 168)
+
+[node name="UnbreakWall26" parent="WallsContainer" unique_id=796373915 instance=ExtResource("7_mxnmf")]
+position = Vector2(8, -8)
+
+[node name="UnbreakWall38" parent="WallsContainer" unique_id=876161978 instance=ExtResource("7_mxnmf")]
+position = Vector2(24, -8)
+
+[node name="UnbreakWall39" parent="WallsContainer" unique_id=2047048660 instance=ExtResource("7_mxnmf")]
+position = Vector2(40, -8)
+
+[node name="UnbreakWall40" parent="WallsContainer" unique_id=916942236 instance=ExtResource("7_mxnmf")]
+position = Vector2(56, -8)
+
+[node name="UnbreakWall41" parent="WallsContainer" unique_id=1484637612 instance=ExtResource("7_mxnmf")]
+position = Vector2(72, -8)
+
+[node name="UnbreakWall42" parent="WallsContainer" unique_id=1778442721 instance=ExtResource("7_mxnmf")]
+position = Vector2(88, -8)
+
+[node name="UnbreakWall43" parent="WallsContainer" unique_id=394709998 instance=ExtResource("7_mxnmf")]
+position = Vector2(104, -8)
+
+[node name="UnbreakWall44" parent="WallsContainer" unique_id=1849856602 instance=ExtResource("7_mxnmf")]
+position = Vector2(120, -8)
+
+[node name="UnbreakWall45" parent="WallsContainer" unique_id=455661686 instance=ExtResource("7_mxnmf")]
+position = Vector2(136, -8)
+
+[node name="UnbreakWall46" parent="WallsContainer" unique_id=1282390139 instance=ExtResource("7_mxnmf")]
+position = Vector2(152, -8)
+
+[node name="UnbreakWall47" parent="WallsContainer" unique_id=1140051256 instance=ExtResource("7_mxnmf")]
+position = Vector2(168, -8)
+
+[node name="UnbreakWall48" parent="WallsContainer" unique_id=2003094766 instance=ExtResource("7_mxnmf")]
+position = Vector2(184, -8)
+
+[node name="UnbreakWall25" parent="WallsContainer" unique_id=1680275147 instance=ExtResource("7_mxnmf")]
+position = Vector2(200, 168)
+
+[node name="Players" type="Node2D" parent="." unique_id=1085812434]
+y_sort_enabled = true
+
+[node name="Player0" parent="Players" unique_id=654998926 instance=ExtResource("6_mxnmf")]
+position = Vector2(8, 8)
+
+[node name="Player1" parent="Players" unique_id=1130787805 instance=ExtResource("6_mxnmf")]
+position = Vector2(184, 152)
+player_id = 1

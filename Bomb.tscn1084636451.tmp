@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://y6elyiu2lj6q"]
+
+[ext_resource type="Script" uid="uid://hejf6p3o4bo8" path="res://bomb.gd" id="1_a4im0"]
+[ext_resource type="Texture2D" uid="uid://761ltsn0uoax" path="res://bomb1.png" id="2_a4im0"]
+[ext_resource type="PackedScene" uid="uid://cwmfc758gnp3i" path="res://Explosion.tscn" id="2_lmso4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 6.0827627
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 6.0
+
+[node name="Bomb" type="Node2D" unique_id=529202750]
+script = ExtResource("1_a4im0")
+explosion_scene = ExtResource("2_lmso4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2111765479]
+texture_filter = 5
+texture = ExtResource("2_a4im0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1543378464]
+wait_time = 2.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1734696818]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=961044173]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_g4v7s")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D" unique_id=2004286274]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D" unique_id=37628293]
+shape = SubResource("CircleShape2D_yf5fn")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_shape_exited" from="StaticBody2D/Area2D" to="." method="_on_area_2d_area_shape_exited"]
+[connection signal="body_exited" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_exited"]

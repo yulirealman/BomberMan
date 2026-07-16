@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cwmfc758gnp3i"]
+
+[ext_resource type="Script" uid="uid://dh3lewrcnxqdi" path="res://explosion.gd" id="1_li25b"]
+[ext_resource type="Texture2D" uid="uid://ckl8mjg15d4f1" path="res://Explosion.png" id="1_oxoqp"]
+
+[node name="Explosion" type="Node2D" unique_id=1372584659]
+script = ExtResource("1_li25b")
+explosion_scene = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041251526]
+texture_filter = 5
+texture = ExtResource("1_oxoqp")
+
+[node name="Timer" type="Timer" parent="." unique_id=2010398335]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

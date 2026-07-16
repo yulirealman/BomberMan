@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://buo5usmy57fj4"]
+
+[ext_resource type="Texture2D" uid="uid://py233wipk0u7" path="res://Box.png" id="1_0bkxv"]
+[ext_resource type="Script" uid="uid://dd7bro7noy7kr" path="res://Box.gd" id="1_bybq8"]
+[ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://HurtBoxComponent.gd" id="2_jm3vu"]
+[ext_resource type="PackedScene" uid="uid://b1xpjh0dsipgs" path="res://PowerItem.tscn" id="2_wybss"]
+[ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://HealthComponent.gd" id="3_speaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm3vu"]
+size = Vector2(14, 14)
+
+[node name="Box" type="AnimatableBody2D" unique_id=1583826884]
+collision_layer = 2
+script = ExtResource("1_bybq8")
+power_item_scene = ExtResource("2_wybss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1729382139]
+shape = SubResource("RectangleShape2D_jm3vu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1531260249]
+texture_filter = 5
+texture = ExtResource("1_0bkxv")
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=161954341 node_paths=PackedStringArray("health_component")]
+script = ExtResource("2_jm3vu")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=647268897]
+shape = SubResource("RectangleShape2D_jm3vu")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1709065534]
+script = ExtResource("3_speaj")
+metadata/_custom_type_script = "uid://cpamelf0njewp"

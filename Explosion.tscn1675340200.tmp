@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cwmfc758gnp3i"]
+
+[ext_resource type="Script" uid="uid://dh3lewrcnxqdi" path="res://explosion.gd" id="1_li25b"]
+[ext_resource type="Texture2D" uid="uid://ckl8mjg15d4f1" path="res://Explosion.png" id="1_oxoqp"]
+[ext_resource type="Script" uid="uid://d3xltc01cb0f4" path="res://HitBoxComponent.gd" id="3_n4djn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(16, 16)
+
+[node name="Explosion" type="Area2D" unique_id=37376662]
+script = ExtResource("1_li25b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041251526]
+texture_filter = 5
+texture = ExtResource("1_oxoqp")
+
+[node name="Timer" type="Timer" parent="." unique_id=2010398335]
+wait_time = 0.1
+
+[node name="HitboxComponent" type="CollisionShape2D" parent="." unique_id=746553111]
+shape = SubResource("RectangleShape2D_g4v7s")
+script = ExtResource("3_n4djn")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

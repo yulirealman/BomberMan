@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://diygwv781k3tm"]
+
+[ext_resource type="Script" uid="uid://j7jmgn10jixu" path="res://player.gd" id="1_kne1u"]
+[ext_resource type="PackedScene" uid="uid://y6elyiu2lj6q" path="res://Bomb.tscn" id="2_e80uo"]
+[ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="3_cxr5p"]
+[ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://HealthComponent.gd" id="4_e80uo"]
+[ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://HurtBoxComponent.gd" id="5_cxr5p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdg3f"]
+radius = 63.07139
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(112, 96)
+
+[node name="Player" type="CharacterBody2D" unique_id=654998926]
+scale = Vector2(0.125, 0.125)
+script = ExtResource("1_kne1u")
+speed = null
+strength = null
+num_of_bomb = null
+bomb_scene = ExtResource("2_e80uo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635875797]
+z_index = 1
+texture = ExtResource("3_cxr5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=211869716]
+shape = SubResource("CircleShape2D_tdg3f")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1354814999]
+script = ExtResource("4_e80uo")
+metadata/_custom_type_script = "uid://cpamelf0njewp"
+
+[node name="HurtBoxComponent" type="Area2D" parent="." unique_id=359548599 node_paths=PackedStringArray("health_component")]
+script = ExtResource("5_cxr5p")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=270817286]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="place_bomb" from="." to="." method="_on_place_bomb"]

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://y6elyiu2lj6q"]
+
+[ext_resource type="Script" uid="uid://hejf6p3o4bo8" path="res://bomb.gd" id="1_a4im0"]
+[ext_resource type="Texture2D" uid="uid://761ltsn0uoax" path="res://bomb1.png" id="2_a4im0"]
+[ext_resource type="PackedScene" uid="uid://cwmfc758gnp3i" path="res://Explosion.tscn" id="2_lmso4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57qmd"]
+radius = 6.0
+
+[node name="Bomb" type="AnimatableBody2D" unique_id=839725357]
+script = ExtResource("1_a4im0")
+explosion_scene = ExtResource("2_lmso4")
+
+[node name="ListenerComponent" type="Area2D" parent="." unique_id=1134981927]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ListenerComponent" unique_id=462206360]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2111765479]
+texture_filter = 5
+position = Vector2(0, -2)
+texture = ExtResource("2_a4im0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1543378464]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1052078946]
+shape = SubResource("CircleShape2D_57qmd")
+
+[connection signal="area_exited" from="ListenerComponent" to="." method="_on_listener_component_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
