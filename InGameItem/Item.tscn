@@ -11,12 +11,11 @@ size = Vector2(10, 12)
 script = ExtResource("1_ylr0e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1377263032]
-visible = false
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=858433127]
-modulate = Color(0.93759227, 8.28324, 8.097275, 1)
 texture_filter = 5
+scale = Vector2(0.5, 0.5)
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1462709746]
 script = ExtResource("3_1s7ww")
@@ -30,6 +29,7 @@ health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://brtfmqbrp80ay"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=530978329]
+visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 

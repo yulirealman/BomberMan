@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bxd8yons4fa5h"]
 
 [ext_resource type="Script" uid="uid://1rd8auguq02o" path="res://InGameItem/ItemData.gd" id="1_mol1c"]
+[ext_resource type="Texture2D" uid="uid://dkmgvacf1tyuw" path="res://InGameItem/explosionup.png" id="2_1rt61"]
 
 [resource]
 script = ExtResource("1_mol1c")
-item_name = "Explosion Up"
 item_type = 1
+sprite_texture = ExtResource("2_1rt61")
 metadata/_custom_type_script = "uid://1rd8auguq02o"

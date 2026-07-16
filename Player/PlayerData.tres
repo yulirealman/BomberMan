@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_5eh0c")
+speed = 50.0
 explosion_distance = 1
 max_bomb_amount = 2
 bomb_scene = ExtResource("1_20s54")

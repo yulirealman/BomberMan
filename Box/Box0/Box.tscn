@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dd7bro7noy7kr" path="res://Box/Box0/Box.gd" id="1_bybq8"]
 [ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://CommonComponents/HurtBoxComponent.gd" id="2_jm3vu"]
-[ext_resource type="PackedScene" uid="uid://b1xpjh0dsipgs" path="res://InGameItem/PowerItem/PowerItem.tscn" id="2_wybss"]
-[ext_resource type="PackedScene" uid="uid://8stdcl4t6jrs" path="res://InGameItem/BombItem/BombItem.tscn" id="3_fkttd"]
+[ext_resource type="PackedScene" uid="uid://34a2olelt2x0" path="res://InGameItem/Item.tscn" id="2_kd1th"]
+[ext_resource type="Resource" uid="uid://bxd8yons4fa5h" path="res://InGameItem/ExplosionUp.tres" id="3_qvldy"]
 [ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://CommonComponents/HealthComponent.gd" id="3_speaj"]
+[ext_resource type="Resource" uid="uid://1qnk1bmn7qvf" path="res://InGameItem/BombUp.tres" id="4_fxs5g"]
 [ext_resource type="Texture2D" uid="uid://crlwmxospjile" path="res://Box/Box0/mybox_0.png" id="4_irfla"]
 [ext_resource type="Shader" uid="uid://divqvdaqrsa1a" path="res://Shader/CommonShader.gdshader" id="5_c7r5s"]
+[ext_resource type="Resource" uid="uid://c50p44atpsx4r" path="res://InGameItem/SpeedUp.tres" id="5_fxs5g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gyogo"]
 shader = ExtResource("5_c7r5s")
@@ -28,8 +30,10 @@ size = Vector2(16, 16)
 y_sort_enabled = true
 collision_layer = 2147483648
 script = ExtResource("1_bybq8")
-power_item_scene = ExtResource("2_wybss")
-bomb_item_scene = ExtResource("3_fkttd")
+item_scene = ExtResource("2_kd1th")
+bomb_up_data = ExtResource("4_fxs5g")
+explosion_up_data = ExtResource("3_qvldy")
+speed_up_data = ExtResource("5_fxs5g")
 
 [node name="MyBrick" type="Sprite2D" parent="." unique_id=97237066]
 y_sort_enabled = true

@@ -63,15 +63,15 @@ func _on_bomb_exploded() -> void:
 	curr_bomb_amount = max(0, curr_bomb_amount - 1)
 	print("A bomb exploded. Recharged 1 bomb. Bombs remaining in Field:", curr_bomb_amount)
 
-# 吃到“加范围”道具时调用
-func update_explosion_distance():
-	duplicated_data.explosion_distance += 1
-
-
-# 吃到“加数量上限”道具时调用
-func update_bomb_amount():
-	duplicated_data.max_bomb_amount += 1
-	print("Bomb capacity increased! New maximum:", duplicated_data.max_bomb_amount)
+## 吃到“加范围”道具时调用
+#func update_explosion_distance():
+	#duplicated_data.explosion_distance += 1
+#
+#
+## 吃到“加数量上限”道具时调用
+#func update_bomb_amount():
+	#duplicated_data.max_bomb_amount += 1
+	#print("Bomb capacity increased! New maximum:", duplicated_data.max_bomb_amount)
 
 
 

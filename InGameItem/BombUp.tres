@@ -1,10 +1,9 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://1qnk1bmn7qvf"]
 
 [ext_resource type="Script" uid="uid://1rd8auguq02o" path="res://InGameItem/ItemData.gd" id="1_6hu7y"]
-[ext_resource type="Texture2D" uid="uid://761ltsn0uoax" path="res://InGameItem/BombItem/bomb1.png" id="2_ggl8i"]
+[ext_resource type="Texture2D" uid="uid://blth8mg36em8g" path="res://InGameItem/bombup.png" id="2_6hu7y"]
 
 [resource]
 script = ExtResource("1_6hu7y")
-item_name = "BombUp"
-sprite_texture = ExtResource("2_ggl8i")
+sprite_texture = ExtResource("2_6hu7y")
 metadata/_custom_type_script = "uid://1rd8auguq02o"
