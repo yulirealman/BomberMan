@@ -56,7 +56,7 @@ func generate_explosion(distance: int, pixel: int):
 	var directions = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
 	
 	
-	
+
 	
 	# 3. 循环生成四个方向延伸的侧边爆炸
 	for dir in directions:

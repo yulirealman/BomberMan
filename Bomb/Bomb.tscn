@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://y6elyiu2lj6q"]
 
-[ext_resource type="Script" uid="uid://pu4akh3snle3" path="res://Bomb.gd" id="1_a4im0"]
-[ext_resource type="Texture2D" uid="uid://761ltsn0uoax" path="res://bomb1.png" id="2_a4im0"]
+[ext_resource type="Script" uid="uid://pu4akh3snle3" path="res://Bomb/Bomb.gd" id="1_a4im0"]
 [ext_resource type="PackedScene" uid="uid://cwmfc758gnp3i" path="res://Explosion.tscn" id="2_lmso4"]
 [ext_resource type="Shader" uid="uid://divqvdaqrsa1a" path="res://Shader/CommonShader.gdshader" id="4_vmn8j"]
 [ext_resource type="Texture2D" uid="uid://cdbel2og4yuki" path="res://Bomb/Srpite/Bomb/0001.png" id="4_w5701"]
@@ -100,7 +99,6 @@ explosion_scene = ExtResource("2_lmso4")
 [node name="ListenerComponent" type="Area2D" parent="." unique_id=1134981927]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ListenerComponent" unique_id=462206360]
-visible = false
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="Timer" type="Timer" parent="." unique_id=1543378464]
@@ -110,13 +108,6 @@ wait_time = 2.1999999999999997
 shape = SubResource("CircleShape2D_57qmd")
 
 [node name="Visual" type="Node2D" parent="." unique_id=819704293]
-
-[node name="Shadow" type="Sprite2D" parent="Visual" unique_id=2111765479]
-modulate = Color(1, 1, 1, 0.11400001)
-texture_filter = 5
-position = Vector2(-1.5000006, 3.5)
-scale = Vector2(0.68749994, 0.3125)
-texture = ExtResource("2_a4im0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" unique_id=1496367284]
 texture_filter = 3
