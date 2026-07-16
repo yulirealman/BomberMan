@@ -4,7 +4,7 @@ extends Node2D
 @onready var grid_map_manager: GridMapManager = $GridMapManager
 @onready var players_container: Node2D = $Players
 @onready var bombs_container: Node = $BombsContainer
-
+#testing
 func _ready() -> void:
 	# 在這裡動態綁定玩家的請求信號	
 # 2. 遍歷 Players 容器下的所有子節點
