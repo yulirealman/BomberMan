@@ -30,4 +30,3 @@ script = ExtResource("3_n4djn")
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="hit" from="HitBoxComponent" to="." method="_on_hit_box_component_hit"]

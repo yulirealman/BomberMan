@@ -75,6 +75,30 @@ func update_bomb_amount():
 
 
 
+# 在 Player.gd 中新增此函數
+func apply_item_effect(item: ItemData) -> void:
+	print("玩家 %d 拾取了道具: %s" % [player_id, item.item_name])
+	
+	match item.item_type:
+		ItemData.ItemType.BOMB_UP:
+			# 以前你寫的 update_bomb_amount()
+			# 這裡我們用 item.value 進行動態加成，更靈活！
+			duplicated_data.max_bomb_amount += int(item.value)
+			print("炸彈上限增加至: ", duplicated_data.max_bomb_amount)
+			
+		ItemData.ItemType.EXPLOSION_UP:
+			# 以前你寫的 update_explosion_distance()
+			duplicated_data.explosion_distance += int(item.value)
+			print("爆炸範圍增加至: ", duplicated_data.explosion_distance)
+			
+		ItemData.ItemType.SPEED_UP:
+			# 輕鬆新增原本沒有的“速度鞋”道具
+			duplicated_data.speed += item.value
+			print("移動速度增加至: ", duplicated_data.speed)
+			
+		_:
+			push_warning("未處理的道具類型！")
+
 
 # for animation
 func update_face_direction(input_vector: Vector2) -> void:

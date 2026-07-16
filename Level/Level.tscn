@@ -247,5 +247,4 @@ position = Vector2(8, 8)
 
 [node name="Player1" parent="Players" unique_id=1130787805 instance=ExtResource("6_mxnmf")]
 position = Vector2(184, 152)
-collision_mask = 2
 player_id = 1
