@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://buo5usmy57fj4"]
 
-[ext_resource type="Texture2D" uid="uid://py233wipk0u7" path="res://Box.png" id="1_0bkxv"]
-[ext_resource type="Script" uid="uid://dd7bro7noy7kr" path="res://Box.gd" id="1_bybq8"]
-[ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://HurtBoxComponent.gd" id="2_jm3vu"]
-[ext_resource type="PackedScene" uid="uid://b1xpjh0dsipgs" path="res://PowerItem.tscn" id="2_wybss"]
-[ext_resource type="PackedScene" uid="uid://8stdcl4t6jrs" path="res://BombItem.tscn" id="3_fkttd"]
-[ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://HealthComponent.gd" id="3_speaj"]
-[ext_resource type="Texture2D" uid="uid://crlwmxospjile" path="res://mywall_0.png" id="4_irfla"]
+[ext_resource type="Script" uid="uid://dd7bro7noy7kr" path="res://Box/Box0/Box.gd" id="1_bybq8"]
+[ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://CommonComponents/HurtBoxComponent.gd" id="2_jm3vu"]
+[ext_resource type="PackedScene" uid="uid://b1xpjh0dsipgs" path="res://InGameItem/PowerItem/PowerItem.tscn" id="2_wybss"]
+[ext_resource type="PackedScene" uid="uid://8stdcl4t6jrs" path="res://InGameItem/BombItem/BombItem.tscn" id="3_fkttd"]
+[ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://CommonComponents/HealthComponent.gd" id="3_speaj"]
+[ext_resource type="Texture2D" uid="uid://crlwmxospjile" path="res://Box/Box0/mybox_0.png" id="4_irfla"]
 [ext_resource type="Shader" uid="uid://divqvdaqrsa1a" path="res://Shader/CommonShader.gdshader" id="5_c7r5s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gyogo"]
@@ -30,12 +29,6 @@ y_sort_enabled = true
 script = ExtResource("1_bybq8")
 power_item_scene = ExtResource("2_wybss")
 bomb_item_scene = ExtResource("3_fkttd")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1531260249]
-visible = false
-y_sort_enabled = true
-texture_filter = 5
-texture = ExtResource("1_0bkxv")
 
 [node name="MyBrick" type="Sprite2D" parent="." unique_id=97237066]
 y_sort_enabled = true

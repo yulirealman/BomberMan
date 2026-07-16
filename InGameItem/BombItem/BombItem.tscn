@@ -1,30 +1,33 @@
-[gd_scene format=3 uid="uid://b1xpjh0dsipgs"]
+[gd_scene format=3 uid="uid://8stdcl4t6jrs"]
 
-[ext_resource type="Script" uid="uid://blhvafmik5dld" path="res://PowerItem.gd" id="1_0yrfk"]
-[ext_resource type="Texture2D" uid="uid://cwraxhcc0jcok" path="res://Power.png" id="1_7pso2"]
-[ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://HealthComponent.gd" id="3_phf0s"]
-[ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://HurtBoxComponent.gd" id="4_0yrfk"]
+[ext_resource type="Script" uid="uid://hgmxkjhg57kb" path="res://InGameItem/BombItem/BombItem.gd" id="1_f4b1h"]
+[ext_resource type="Texture2D" uid="uid://761ltsn0uoax" path="res://InGameItem/BombItem/bomb1.png" id="2_f4b1h"]
+[ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://CommonComponents/HealthComponent.gd" id="3_p31jm"]
+[ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://CommonComponents/HurtBoxComponent.gd" id="4_gn4a2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(8, 13)
+size = Vector2(10, 12)
 
-[node name="PowerItem" type="Area2D" unique_id=27001575]
-script = ExtResource("1_0yrfk")
+[node name="BombItem" type="Area2D" unique_id=27001575]
+script = ExtResource("1_f4b1h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1377263032]
+visible = false
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=858433127]
+modulate = Color(0.93759227, 8.28324, 8.097275, 1)
 texture_filter = 5
-texture = ExtResource("1_7pso2")
+texture = ExtResource("2_f4b1h")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1462709746]
-script = ExtResource("3_phf0s")
+script = ExtResource("3_p31jm")
 max_health = 2.0
 metadata/_custom_type_script = "uid://cpamelf0njewp"
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=803582811 node_paths=PackedStringArray("health_component")]
-script = ExtResource("4_0yrfk")
+visible = false
+script = ExtResource("4_gn4a2")
 health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://brtfmqbrp80ay"
 

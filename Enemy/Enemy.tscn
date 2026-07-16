@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://r7bwl4xlp7vi"]
 
-[ext_resource type="Script" uid="uid://b365l03knl0bj" path="res://Enemy.gd" id="1_e6d4v"]
+[ext_resource type="Script" uid="uid://b365l03knl0bj" path="res://Enemy/Enemy.gd" id="1_e6d4v"]
 [ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="2_qp131"]
-[ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://HurtBoxComponent.gd" id="3_6do27"]
-[ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://HealthComponent.gd" id="4_rvmyp"]
+[ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://CommonComponents/HurtBoxComponent.gd" id="3_6do27"]
+[ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://CommonComponents/HealthComponent.gd" id="4_rvmyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nxwx"]
 size = Vector2(112, 112)
