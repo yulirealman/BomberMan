@@ -18,6 +18,7 @@ shader_parameter/shadow_softness = 0.6
 size = Vector2(16, 16)
 
 [node name="UnbreakWall" type="AnimatableBody2D" unique_id=1583826884]
+z_index = 1
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_8th70")
 collision_layer = 2147483648

@@ -24,9 +24,6 @@ tile_set = ExtResource("4_0b4ue")
 script = ExtResource("5_m3clv")
 metadata/_custom_type_script = "uid://bs8cpb8kvh1uk"
 
-[node name="BombsContainer" type="Node2D" parent="." unique_id=1261685709]
-y_sort_enabled = true
-
 [node name="BoxesContainer" type="Node2D" parent="." unique_id=865225167]
 y_sort_enabled = true
 
@@ -238,7 +235,11 @@ position = Vector2(184, -8)
 [node name="UnbreakWall25" parent="WallsContainer" unique_id=1680275147 instance=ExtResource("7_mxnmf")]
 position = Vector2(200, 168)
 
+[node name="BombsContainer" type="Node2D" parent="." unique_id=1261685709]
+y_sort_enabled = true
+
 [node name="Players" type="Node2D" parent="." unique_id=1085812434]
+visibility_layer = 2
 y_sort_enabled = true
 
 [node name="Player0" parent="Players" unique_id=654998926 instance=ExtResource("6_mxnmf")]

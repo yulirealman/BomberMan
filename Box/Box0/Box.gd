@@ -23,7 +23,6 @@ func _on_death() -> void:
 	queue_free()
 	
 func generate_item() -> void:
-	print("YES")
 	# randf() 会随机生成一个 0.0 到 1.0 之间的浮点数
 	var roll := randf()
 	
