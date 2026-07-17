@@ -12,8 +12,6 @@ func _ready() -> void:
 	health_component.health_depleted.connect(_on_death)
 	GameManager.box_dict[MyUtility.grid_pos(position,16)] = true
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
