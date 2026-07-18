@@ -34,7 +34,7 @@ func _on_player_bomb_placement_requested(requesting_player: Player, target_grid_
 	
 	var bomb = bomb_scene.instantiate()
 	# 使用「該玩家」的 global_position 進行對齊
-	bomb.global_position = MyUtility.snap(requesting_player.global_position, 16)
+	bomb.global_position = MyUtility.snap(requesting_player.global_position, GameManager.GRID_SIZE)
 	bomb.set_explosion_distance(requesting_player.duplicated_data.explosion_distance)
 	
 	# 3. 將炸彈登記到網格地圖中

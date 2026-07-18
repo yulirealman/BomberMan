@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bk7elf3nq34dj" path="res://Floor/tiles.tres" id="4_0b4ue"]
 [ext_resource type="Script" uid="uid://bs8cpb8kvh1uk" path="res://GridMapManager.gd" id="5_m3clv"]
 [ext_resource type="PackedScene" uid="uid://diygwv781k3tm" path="res://Player/Player.tscn" id="6_mxnmf"]
+[ext_resource type="PackedScene" uid="uid://bsv8n4jctavxc" path="res://Wall/Wall0/UnbreakWall.tscn" id="6_u0wck"]
 
 [node name="Level" type="Node2D" unique_id=599285493]
 y_sort_enabled = true
@@ -27,49 +28,55 @@ metadata/_custom_type_script = "uid://bs8cpb8kvh1uk"
 y_sort_enabled = true
 
 [node name="Box2" parent="BoxesContainer" unique_id=1516930982 instance=ExtResource("3_oi3di")]
-position = Vector2(56, 56)
+position = Vector2(40, 104)
 
 [node name="Box3" parent="BoxesContainer" unique_id=1583826884 instance=ExtResource("3_oi3di")]
-position = Vector2(88, 56)
+position = Vector2(152, 72)
+
+[node name="Box18" parent="BoxesContainer" unique_id=1458112886 instance=ExtResource("3_oi3di")]
+position = Vector2(24, 72)
 
 [node name="Box4" parent="BoxesContainer" unique_id=561799776 instance=ExtResource("3_oi3di")]
-position = Vector2(40, 88)
+position = Vector2(104, 24)
 
 [node name="Box5" parent="BoxesContainer" unique_id=284378170 instance=ExtResource("3_oi3di")]
-position = Vector2(56, 88)
+position = Vector2(104, 56)
 
 [node name="Box8" parent="BoxesContainer" unique_id=165066444 instance=ExtResource("3_oi3di")]
-position = Vector2(8, 40)
+position = Vector2(40, 40)
 
 [node name="Box9" parent="BoxesContainer" unique_id=500082288 instance=ExtResource("3_oi3di")]
-position = Vector2(8, 56)
-
-[node name="Box10" parent="BoxesContainer" unique_id=716453163 instance=ExtResource("3_oi3di")]
-position = Vector2(8, 72)
-
-[node name="Box6" parent="BoxesContainer" unique_id=1684422257 instance=ExtResource("3_oi3di")]
-position = Vector2(88, 88)
-
-[node name="Box11" parent="BoxesContainer" unique_id=1428908174 instance=ExtResource("3_oi3di")]
 position = Vector2(40, 120)
 
+[node name="Box10" parent="BoxesContainer" unique_id=716453163 instance=ExtResource("3_oi3di")]
+position = Vector2(72, 88)
+
+[node name="Box6" parent="BoxesContainer" unique_id=1684422257 instance=ExtResource("3_oi3di")]
+position = Vector2(72, 24)
+
+[node name="Box11" parent="BoxesContainer" unique_id=1428908174 instance=ExtResource("3_oi3di")]
+position = Vector2(104, 88)
+
 [node name="Box12" parent="BoxesContainer" unique_id=355115427 instance=ExtResource("3_oi3di")]
-position = Vector2(56, 120)
+position = Vector2(136, 40)
 
 [node name="Box13" parent="BoxesContainer" unique_id=800648339 instance=ExtResource("3_oi3di")]
-position = Vector2(88, 120)
+position = Vector2(136, 104)
 
 [node name="Box14" parent="BoxesContainer" unique_id=1933298438 instance=ExtResource("3_oi3di")]
-position = Vector2(120, 120)
+position = Vector2(72, 120)
 
 [node name="Box15" parent="BoxesContainer" unique_id=1916480992 instance=ExtResource("3_oi3di")]
 position = Vector2(136, 120)
 
 [node name="Box16" parent="BoxesContainer" unique_id=764661209 instance=ExtResource("3_oi3di")]
-position = Vector2(168, 120)
+position = Vector2(72, 56)
 
 [node name="Box7" parent="BoxesContainer" unique_id=1292665927 instance=ExtResource("3_oi3di")]
-position = Vector2(104, 56)
+position = Vector2(104, 120)
+
+[node name="Box17" parent="BoxesContainer" unique_id=1477074031 instance=ExtResource("3_oi3di")]
+position = Vector2(88, 72)
 
 [node name="BombsContainer" type="Node2D" parent="." unique_id=1261685709]
 y_sort_enabled = true
@@ -80,8 +87,71 @@ y_sort_enabled = true
 
 [node name="Player0" parent="Players" unique_id=654998926 instance=ExtResource("6_mxnmf")]
 visibility_layer = 2
-position = Vector2(24, 24)
+position = Vector2(8, 8)
 
 [node name="Player1" parent="Players" unique_id=1130787805 instance=ExtResource("6_mxnmf")]
 position = Vector2(184, 152)
 player_id = 1
+
+[node name="WallsContainer" type="Node2D" parent="." unique_id=1084674672]
+y_sort_enabled = true
+
+[node name="UnbreakWall" parent="WallsContainer" unique_id=1029544549 instance=ExtResource("6_u0wck")]
+position = Vector2(24, 24)
+
+[node name="UnbreakWall2" parent="WallsContainer" unique_id=309920448 instance=ExtResource("6_u0wck")]
+position = Vector2(56, 24)
+
+[node name="UnbreakWall3" parent="WallsContainer" unique_id=868876965 instance=ExtResource("6_u0wck")]
+position = Vector2(88, 24)
+
+[node name="UnbreakWall4" parent="WallsContainer" unique_id=2132839202 instance=ExtResource("6_u0wck")]
+position = Vector2(120, 24)
+
+[node name="UnbreakWall5" parent="WallsContainer" unique_id=1241046644 instance=ExtResource("6_u0wck")]
+position = Vector2(152, 24)
+
+[node name="UnbreakWall6" parent="WallsContainer" unique_id=751787819 instance=ExtResource("6_u0wck")]
+position = Vector2(152, 56)
+
+[node name="UnbreakWall7" parent="WallsContainer" unique_id=405923745 instance=ExtResource("6_u0wck")]
+position = Vector2(88, 56)
+
+[node name="UnbreakWall8" parent="WallsContainer" unique_id=412197205 instance=ExtResource("6_u0wck")]
+position = Vector2(56, 56)
+
+[node name="UnbreakWall9" parent="WallsContainer" unique_id=1279546173 instance=ExtResource("6_u0wck")]
+position = Vector2(24, 56)
+
+[node name="UnbreakWall10" parent="WallsContainer" unique_id=1192719916 instance=ExtResource("6_u0wck")]
+position = Vector2(24, 88)
+
+[node name="UnbreakWall11" parent="WallsContainer" unique_id=901803296 instance=ExtResource("6_u0wck")]
+position = Vector2(152, 88)
+
+[node name="UnbreakWall18" parent="WallsContainer" unique_id=1498991481 instance=ExtResource("6_u0wck")]
+position = Vector2(120, 88)
+
+[node name="UnbreakWall19" parent="WallsContainer" unique_id=1856084072 instance=ExtResource("6_u0wck")]
+position = Vector2(88, 88)
+
+[node name="UnbreakWall20" parent="WallsContainer" unique_id=430714113 instance=ExtResource("6_u0wck")]
+position = Vector2(56, 88)
+
+[node name="UnbreakWall12" parent="WallsContainer" unique_id=987056285 instance=ExtResource("6_u0wck")]
+position = Vector2(152, 120)
+
+[node name="UnbreakWall13" parent="WallsContainer" unique_id=285607419 instance=ExtResource("6_u0wck")]
+position = Vector2(120, 120)
+
+[node name="UnbreakWall17" parent="WallsContainer" unique_id=1266368302 instance=ExtResource("6_u0wck")]
+position = Vector2(120, 56)
+
+[node name="UnbreakWall14" parent="WallsContainer" unique_id=1394856033 instance=ExtResource("6_u0wck")]
+position = Vector2(88, 120)
+
+[node name="UnbreakWall15" parent="WallsContainer" unique_id=2003242876 instance=ExtResource("6_u0wck")]
+position = Vector2(56, 120)
+
+[node name="UnbreakWall16" parent="WallsContainer" unique_id=782817624 instance=ExtResource("6_u0wck")]
+position = Vector2(24, 120)

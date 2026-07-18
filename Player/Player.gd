@@ -131,12 +131,12 @@ func play_directional_animation(anim_base_name: String) -> void:
 func clamp_to_screen() -> void:
 	# 1. 获取当前游戏视口的实际像素大小（支持多分辨率自适应）
 	var view_size = get_viewport_rect().size
-	
+	print(view_size)
 	# 2. 设置安全边距（防止角色的半个身体或贴图边缘穿出屏幕）
 	# 既然你的格子是 16x16，通常角色碰撞体半径约为 6 到 7 像素
 	var margin: float = 7.0 
 	
 	# 3. 强行把 global_position 锁死在屏幕可见区域内
-	global_position.x = clamp(global_position.x, margin, view_size.x - margin)
-	global_position.y = clamp(global_position.y, margin+6, view_size.y - margin)
+	global_position.x = clamp(global_position.x, margin, 192 - margin)
+	global_position.y = clamp(global_position.y, margin+6, 160 - margin)
 # =====================================================================

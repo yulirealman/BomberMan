@@ -11,14 +11,14 @@ var cell: Vector2i
 var explosion_id = randi()
 
 @export var explosion_scene: PackedScene
-@export var explosion_pixel: int = 16
+
 
 var explosion_distance: int = 2 
 var is_exploded := false # 改名避免和信号名 exploded 冲突
 
 
 func _ready() -> void:
-	cell = MyUtility.grid_pos(position, 16)
+	cell = MyUtility.grid_pos(position, GameManager.GRID_SIZE)
 	print("placed bomb at ", cell)
 	add_to_group("Bombs")
 	GameManager.bomb_dict[cell] = self
@@ -43,7 +43,7 @@ func explode():
 	GameManager.bomb_dict.erase(cell)
 
 	# 释放火花
-	generate_explosion(explosion_distance, explosion_pixel)
+	generate_explosion(explosion_distance, GameManager.GRID_SIZE)
 	
 	queue_free()
 
@@ -86,7 +86,7 @@ func _spawn_explosion_at(pos: Vector2):
 
 
 func check_bomb(pos: Vector2):
-	var target_cell = MyUtility.grid_pos(pos, 16)
+	var target_cell = MyUtility.grid_pos(pos, GameManager.GRID_SIZE)
 
 	if GameManager.bomb_dict.has(target_cell):
 		var bomb = GameManager.bomb_dict[target_cell]
@@ -101,11 +101,11 @@ func _on_listener_component_area_exited(area: Area2D) -> void:
 	
 
 func check_box(pos: Vector2) -> bool:
-	return GameManager.have_box_at(MyUtility.grid_pos(pos, 16)) 
+	return GameManager.have_box_at(MyUtility.grid_pos(pos, GameManager.GRID_SIZE)) 
 
 
 func check_wall(pos: Vector2) -> bool:
-	return GameManager.have_wall_at(MyUtility.grid_pos(pos, 16))
+	return GameManager.have_wall_at(MyUtility.grid_pos(pos, GameManager.GRID_SIZE))
 
 
 func set_explosion_distance(amount: int):

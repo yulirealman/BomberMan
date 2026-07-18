@@ -302,7 +302,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1rgi"]
-radius = 6.0
+radius = 3.0
 
 [node name="Player" type="CharacterBody2D" unique_id=654998926]
 z_index = 1

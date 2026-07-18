@@ -10,7 +10,7 @@ extends AnimatableBody2D
 func _ready() -> void:
 
 	health_component.health_depleted.connect(_on_death)
-	GameManager.box_dict[MyUtility.grid_pos(position,16)] = true
+	GameManager.box_dict[MyUtility.grid_pos(position,GameManager.GRID_SIZE)] = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 func _on_death() -> void:
 
 	generate_item()
-	GameManager.box_dict.erase(MyUtility.grid_pos(position,16))
+	GameManager.box_dict.erase(MyUtility.grid_pos(position,GameManager.GRID_SIZE))
 	queue_free()
 	
 func generate_item() -> void:

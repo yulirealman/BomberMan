@@ -2,7 +2,7 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var speed: float = 40.0
-@export var tile_size: int = 16
+var tile_size: int = GameManager.GRID_SIZE
 
 @onready var health_component: HealthComponent = $HealthComponent
 
