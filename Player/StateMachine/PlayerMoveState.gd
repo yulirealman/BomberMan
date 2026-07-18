@@ -29,5 +29,7 @@ func physics_update(_delta: float) -> void:
 	
 	# 2. 處理放炸彈
 	if Input.is_action_just_pressed(player.action_bomb):
+
 		if player.curr_bomb_amount < player.duplicated_data.max_bomb_amount:
+
 			player.bomb_placement_requested.emit(player,player.grid_pos)

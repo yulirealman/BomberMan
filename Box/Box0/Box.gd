@@ -56,7 +56,7 @@ func generate_item() -> void:
 			spawned_item.item_data = selected_data
 			
 			# 定位与挂载逻辑
-			spawned_item.global_position = global_position
+			spawned_item.global_position = MyUtility.snap(global_position, GameManager.GRID_SIZE)
 			
 			# 极其关键：用 call_deferred 确保在箱子销毁的同一帧，道具能被安全地加进场景
 			get_parent().call_deferred("add_child", spawned_item)

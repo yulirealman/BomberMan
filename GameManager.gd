@@ -4,7 +4,7 @@ var bomb_dict = {}
 var wall_dict = {}
 var box_dict = {}
 var item_dict= {}
-const GRID_SIZE = 16
+const GRID_SIZE = 32
 func have_bomb_at(cell: Vector2i) -> bool:
 	return bomb_dict.has(cell)
 	
