@@ -42,6 +42,7 @@ texture_filter = 5
 material = SubResource("ShaderMaterial_gyogo")
 scale = Vector2(1, 0.9)
 texture = ExtResource("4_irfla")
+offset = Vector2(0, 4)
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=161954341 node_paths=PackedStringArray("health_component")]
 y_sort_enabled = true
@@ -49,7 +50,7 @@ script = ExtResource("2_jm3vu")
 health_component = NodePath("../HealthComponent")
 
 [node name="HurtBoxArea" type="CollisionShape2D" parent="HurtboxComponent" unique_id=647268897]
-position = Vector2(0, 4)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_c7r5s")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1709065534]
@@ -59,5 +60,5 @@ metadata/_custom_type_script = "uid://cpamelf0njewp"
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1729382139]
 y_sort_enabled = true
 texture_filter = 5
-position = Vector2(0, 4)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_jm3vu")

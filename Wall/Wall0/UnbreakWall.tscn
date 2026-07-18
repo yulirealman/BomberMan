@@ -29,8 +29,9 @@ y_sort_enabled = true
 texture_filter = 5
 scale = Vector2(1, 0.9)
 texture = ExtResource("3_ehycy")
+offset = Vector2(0, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1215973085]
 texture_filter = 5
-position = Vector2(0, 4)
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_ehycy")

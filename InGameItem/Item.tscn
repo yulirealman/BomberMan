@@ -15,7 +15,6 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=858433127]
 texture_filter = 5
-position = Vector2(0, -4)
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1462709746]
 script = ExtResource("3_1s7ww")

@@ -21,7 +21,7 @@ texture_filter = 5
 texture = ExtResource("2_3wlyo")
 
 [node name="Timer" type="Timer" parent="." unique_id=2010398335]
-wait_time = 0.05
+wait_time = 0.02
 
 [node name="HitBoxComponent" type="Area2D" parent="." unique_id=1428731500]
 script = ExtResource("3_n4djn")
