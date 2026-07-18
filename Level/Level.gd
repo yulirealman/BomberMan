@@ -13,6 +13,8 @@ func _ready() -> void:
 		# 將子節點安全地轉換為 Player 類型
 		var p := child as Player
 		
+		
+		
 		# 3. 如果轉換成功（確保它不是普通的 Node2D，而是你的 Player 實例）
 		if p != null:
 			# 綁定信號，將當前這個 player 傳進回調函數中
