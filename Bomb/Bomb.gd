@@ -18,10 +18,12 @@ var is_exploded := false # 改名避免和信号名 exploded 冲突
 
 
 func _ready() -> void:
-	cell = MyUtility.grid_pos(position, GameManager.GRID_SIZE)
+	cell = GridManager.world_to_cell(position, GridManager.GRID_SIZE)
 	print("placed bomb at ", cell)
 	add_to_group("Bombs")
-	GameManager.bomb_dict[cell] = self
+	#GameManager.bomb_dict[cell] = self
+	GridManager.register_object(cell,self)
+	
 	collider.disabled = true
 	timer.start()
 
@@ -40,10 +42,11 @@ func explode():
 	exploded.emit()
 	
 	# 从全局字典中移除，防止连锁爆炸重复索引
-	GameManager.bomb_dict.erase(cell)
+	#GameManager.bomb_dict.erase(cell)
+	GridManager.unregister_object(cell)
 
 	# 释放火花
-	generate_explosion(explosion_distance, GameManager.GRID_SIZE)
+	generate_explosion(explosion_distance, GridManager.GRID_SIZE)
 	
 	queue_free()
 
@@ -86,10 +89,11 @@ func _spawn_explosion_at(pos: Vector2):
 
 
 func check_bomb(pos: Vector2):
-	var target_cell = MyUtility.grid_pos(pos, GameManager.GRID_SIZE)
+	var target_cell = GridManager.world_to_cell(pos, GridManager.GRID_SIZE)
 
-	if GameManager.bomb_dict.has(target_cell):
-		var bomb = GameManager.bomb_dict[target_cell]
+	if GridManager.has_bomb_at(target_cell):
+
+		var bomb = GridManager.get_object_at(target_cell)
 		# 确保不是自己，且对方还没爆炸，就引爆它
 		if bomb != self && !bomb.is_exploded:
 			bomb.explode()
@@ -101,11 +105,11 @@ func _on_listener_component_area_exited(area: Area2D) -> void:
 	
 
 func check_box(pos: Vector2) -> bool:
-	return GameManager.have_box_at(MyUtility.grid_pos(pos, GameManager.GRID_SIZE)) 
+	return GridManager.get_object_at(GridManager.world_to_cell(pos, GridManager.GRID_SIZE)) is Box 
 
 
 func check_wall(pos: Vector2) -> bool:
-	return GameManager.have_wall_at(MyUtility.grid_pos(pos, GameManager.GRID_SIZE))
+	return GridManager.get_object_at(GridManager.world_to_cell(pos, GridManager.GRID_SIZE)) is Wall
 
 
 func set_explosion_distance(amount: int):

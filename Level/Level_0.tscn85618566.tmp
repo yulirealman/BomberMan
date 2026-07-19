@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8txogy6iw6jy" path="res://Level/Level.gd" id="1_l00tq"]
 [ext_resource type="Texture2D" uid="uid://butoqhcve5g0u" path="res://Floor/floor.png" id="2_ukj0c"]
+[ext_resource type="Script" uid="uid://bs8cpb8kvh1uk" path="res://GridManager.gd" id="3_rma60"]
 [ext_resource type="PackedScene" uid="uid://diygwv781k3tm" path="res://Player/Player.tscn" id="4_ftmnl"]
 [ext_resource type="PackedScene" uid="uid://buo5usmy57fj4" path="res://Box/Box0/Box.tscn" id="5_7sgg7"]
 [ext_resource type="PackedScene" uid="uid://bsv8n4jctavxc" path="res://Wall/Wall0/UnbreakWall.tscn" id="6_g35fc"]
@@ -27,6 +28,9 @@ tile_set = SubResource("TileSet_6uqi0")
 [node name="BombsContainer" type="Node2D" parent="." unique_id=144330936]
 y_sort_enabled = true
 
+[node name="GridManager" type="Node2D" parent="." unique_id=1850062774]
+script = ExtResource("3_rma60")
+
 [node name="Players" type="Node2D" parent="." unique_id=393671456]
 y_sort_enabled = true
 
@@ -35,7 +39,7 @@ position = Vector2(368, 264)
 player_id = 1
 
 [node name="Player" parent="Players" unique_id=422340817 instance=ExtResource("4_ftmnl")]
-position = Vector2(96, 136)
+position = Vector2(16, 8)
 
 [node name="BoxesContainer" type="Node2D" parent="." unique_id=1537545413]
 y_sort_enabled = true

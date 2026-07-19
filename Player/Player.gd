@@ -40,11 +40,15 @@ func _ready():
 
 	curr_bomb_amount = 0 # 刚出生时场上炸弹数为 0
 	add_to_group("Player")
-	grid_pos = MyUtility.grid_pos(position,GameManager.GRID_SIZE)
+	grid_pos = GridManager.world_to_cell(position,GridManager.GRID_SIZE)
 	health_component.health_depleted.connect(_on_health_depleted)
 
 	state_machine.init(self)
+
+
+
 	
+
 func _on_health_depleted():
 	queue_free()
 

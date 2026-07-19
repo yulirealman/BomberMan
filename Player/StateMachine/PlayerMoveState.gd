@@ -21,8 +21,15 @@ func physics_update(_delta: float) -> void:
 	# ==================== 🛠️ 新增：在位移完成后立刻锁死坐标 ====================
 	player.clamp_to_screen()
 	# ===================================================================
-	player.grid_pos = MyUtility.grid_pos(player.position, GameManager.GRID_SIZE)
+
+
+	player.grid_pos = GridManager.world_to_cell(
+		player.position,
+		GridManager.GRID_SIZE
+	)
+
 	
+
 	 #如果沒有輸入，可以切換回 Idle 狀態（如果想要分得更細的話）
 	if direction == Vector2.ZERO:
 		state_machine.change_to("idle")

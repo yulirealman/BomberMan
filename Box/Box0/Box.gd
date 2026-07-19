@@ -1,3 +1,4 @@
+class_name Box
 extends AnimatableBody2D
 
 @onready var health_component:HealthComponent = $HealthComponent
@@ -10,7 +11,9 @@ extends AnimatableBody2D
 func _ready() -> void:
 
 	health_component.health_depleted.connect(_on_death)
-	GameManager.box_dict[MyUtility.grid_pos(position,GameManager.GRID_SIZE)] = true
+	#GameManager.box_dict[GridManager.world_to_cell(position,GridManager.GRID_SIZE)] = true
+	GridManager.register_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE), self)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,7 +22,10 @@ func _process(delta: float) -> void:
 func _on_death() -> void:
 
 	generate_item()
-	GameManager.box_dict.erase(MyUtility.grid_pos(position,GameManager.GRID_SIZE))
+	#GameManager.box_dict.erase(GridManager.world_to_cell(position,GridManager.GRID_SIZE))
+	GridManager.unregister_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE))
+
+
 	queue_free()
 	
 func generate_item() -> void:
@@ -56,7 +62,7 @@ func generate_item() -> void:
 			spawned_item.item_data = selected_data
 			
 			# 定位与挂载逻辑
-			spawned_item.global_position = MyUtility.snap(global_position, GameManager.GRID_SIZE)
+			spawned_item.global_position = GridManager.world_to_cell_center(global_position, GridManager.GRID_SIZE)
 			
 			# 极其关键：用 call_deferred 确保在箱子销毁的同一帧，道具能被安全地加进场景
 			get_parent().call_deferred("add_child", spawned_item)

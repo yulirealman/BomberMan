@@ -1,7 +1,7 @@
 # level.gd (關卡主控腳本)
 extends Node2D
 
-@onready var grid_map_manager: GridMapManager = $GridMapManager
+#@onready var grid_map_manager: GridManager = $GridManager
 @onready var players_container: Node2D = $Players
 @onready var bombs_container: Node = $BombsContainer
 
@@ -20,13 +20,15 @@ func _ready() -> void:
 			# 綁定信號，將當前這個 player 傳進回調函數中
 			p.bomb_placement_requested.connect(_on_player_bomb_placement_requested)
 			print("成功綁定玩家信號: ", p.name)
-			
+	
+	
+
 			
 # 4. 當玩家發出「想放炸彈」的信號時，接收這個具體的 requesting_player
 func _on_player_bomb_placement_requested(requesting_player: Player, target_grid_pos: Vector2i) -> void:
 
 	# 1. 透過網格管理器檢查該位置有沒有炸彈
-	if grid_map_manager.has_bomb_at(target_grid_pos):
+	if GridManager.has_bomb_at(target_grid_pos):
 		print("這裡已經有炸彈了，不能放！")
 		return
 		
@@ -36,15 +38,15 @@ func _on_player_bomb_placement_requested(requesting_player: Player, target_grid_
 	
 	var bomb = bomb_scene.instantiate()
 	# 使用「該玩家」的 global_position 進行對齊
-	bomb.global_position = MyUtility.snap(requesting_player.global_position, GameManager.GRID_SIZE)
+	bomb.global_position = GridManager.world_to_cell_center(requesting_player.global_position, GridManager.GRID_SIZE)
 	bomb.set_explosion_distance(requesting_player.duplicated_data.explosion_distance)
 	
 	# 3. 將炸彈登記到網格地圖中
-	grid_map_manager.register_object(target_grid_pos, "Bomb")
+	GridManager.register_object(target_grid_pos, self)
 	
 	# 4. 當炸彈爆炸（消失）時，註銷網格登記
 	bomb.tree_exited.connect(func(): 
-		grid_map_manager.unregister_object(target_grid_pos)
+		GridManager.unregister_object(target_grid_pos)
 	)
 	
 	# 5. 把炸彈丟進專門的容器節點，保持場景樹乾淨
