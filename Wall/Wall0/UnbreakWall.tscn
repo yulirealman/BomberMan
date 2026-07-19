@@ -33,5 +33,5 @@ offset = Vector2(0, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1215973085]
 texture_filter = 5
-position = Vector2(0, 12)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_ehycy")
