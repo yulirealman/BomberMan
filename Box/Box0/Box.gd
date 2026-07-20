@@ -23,7 +23,7 @@ func _on_death() -> void:
 
 	generate_item()
 	#GameManager.box_dict.erase(GridManager.world_to_cell(position,GridManager.GRID_SIZE))
-	GridManager.unregister_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE))
+	GridManager.unregister_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE),self)
 
 
 	queue_free()

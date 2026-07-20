@@ -4,6 +4,16 @@ extends Node
 # 用來記錄網格坐標與物件的對應，例如 { Vector2i(1, 2):  reference }
 var _grid_objects: Dictionary = {}
 const GRID_SIZE = 32
+signal object_registered(grid_pos: Vector2i, obj: Node2D)
+signal object_unregistered(grid_pos: Vector2i, obj: Node2D)
+# 在 GridManager.gd 中新增以下變數和函數
+var player_grid_pos: Vector2i = Vector2i.ZERO
+
+func update_player_pos(new_pos: Vector2i) -> void:
+	player_grid_pos = new_pos
+
+func get_player_pos() -> Vector2i:
+	return player_grid_pos
 
 func has_bomb_at(grid_pos: Vector2i) -> bool:
 	return _grid_objects.has(grid_pos) and _grid_objects[grid_pos] is Bomb
@@ -11,11 +21,14 @@ func has_bomb_at(grid_pos: Vector2i) -> bool:
 func register_object(grid_pos: Vector2i, obj: Node2D) -> void:
 
 	_grid_objects[grid_pos] = obj
+	object_registered.emit(grid_pos, obj)
 
 
-func unregister_object(grid_pos: Vector2i) -> void:
-
-	_grid_objects.erase(grid_pos)
+func unregister_object(grid_pos: Vector2i, obj:Node2D) -> void:
+	if _grid_objects.has(grid_pos):
+			_grid_objects.erase(grid_pos)
+			# --- 新增：發射信號 ---
+			object_unregistered.emit(grid_pos, obj)
 
 
 func get_object_at(grid_pos: Vector2i) -> Node2D:
@@ -73,3 +86,10 @@ func _process(_delta: float) -> void:
 	# 按下键盘上的 F9 键，打印一次当前网格状态
 	if Input.is_action_just_pressed("Print"): # 可以在输入映射里配个专属按键
 		print_grid()
+
+
+# 假设你的世界原点和偏移是标准的，或者根据你的项目实际网格原点调整
+func cell_to_world(cell: Vector2i, grid_size: int = GRID_SIZE) -> Vector2:
+	# 如果你的格子中心点对齐，通常需要加上半个格子的大小 (grid_size / 2)
+	# 如果你的格子左上角对齐，直接相乘即可。这里按最常见的“中心点对齐”或直接转换编写：
+	return Vector2(cell) * grid_size + Vector2(grid_size, grid_size) * 0.5

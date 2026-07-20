@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GridManager="*uid://bs8cpb8kvh1uk"
+DangerMap="*uid://hh7pkfahreiw"
 
 [debug]
 

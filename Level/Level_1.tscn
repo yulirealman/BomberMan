@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bfdfj20iusn0b"]
 
 [ext_resource type="Script" uid="uid://c8txogy6iw6jy" path="res://Level/Level.gd" id="1_j7kct"]
+[ext_resource type="PackedScene" uid="uid://r7bwl4xlp7vi" path="res://Enemy/Enemy.tscn" id="2_iyc1c"]
 [ext_resource type="Texture2D" uid="uid://butoqhcve5g0u" path="res://Floor/floor.png" id="4_sfyu6"]
 [ext_resource type="PackedScene" uid="uid://diygwv781k3tm" path="res://Player/Player.tscn" id="6_7slqs"]
 [ext_resource type="PackedScene" uid="uid://buo5usmy57fj4" path="res://Box/Box0/Box.tscn" id="7_ldgm8"]
@@ -18,6 +19,9 @@ sources/0 = SubResource("TileSetAtlasSource_8uh7m")
 [node name="Level_1" type="Node2D" unique_id=390676663]
 y_sort_enabled = true
 script = ExtResource("1_j7kct")
+
+[node name="Enemy" parent="." unique_id=1999285649 instance=ExtResource("2_iyc1c")]
+position = Vector2(80, 112)
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=861364178]
 z_index = -1

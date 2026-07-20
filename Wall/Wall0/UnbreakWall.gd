@@ -10,6 +10,6 @@ func _ready() -> void:
 
 func _on_death() -> void:
 	#GridManager.wall_dict.erase(GridManager.world_to_cell(position,GridManager.GRID_SIZE))
-	GridManager.unregister_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE))
+	GridManager.unregister_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE),self)
 
 	

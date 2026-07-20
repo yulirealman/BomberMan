@@ -45,7 +45,9 @@ func _ready():
 
 	state_machine.init(self)
 
-
+func _on_position_changed(new_world_pos: Vector2):
+	var new_grid_pos = GridManager.world_to_cell(new_world_pos, GridManager.GRID_SIZE)
+	GridManager.update_player_pos(new_grid_pos)
 
 	
 

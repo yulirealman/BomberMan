@@ -46,7 +46,7 @@ func _on_player_bomb_placement_requested(requesting_player: Player, target_grid_
 	
 	# 4. 當炸彈爆炸（消失）時，註銷網格登記
 	bomb.tree_exited.connect(func(): 
-		GridManager.unregister_object(target_grid_pos)
+		GridManager.unregister_object(target_grid_pos,self)
 	)
 	
 	# 5. 把炸彈丟進專門的容器節點，保持場景樹乾淨
