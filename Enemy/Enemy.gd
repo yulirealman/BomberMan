@@ -35,8 +35,14 @@ var active_bombs: Array[Node] = [] # 记录自己当前放了几个炸弹
 
 const GRID_SIZE = 32
 
+@onready var health_component: HealthComponent = $HealthComponent
+
 func _ready() -> void:
+	health_component.health_depleted.connect(_on_health_depleted)
 	_set_idle(1.0) # 出生时先观察一下世界
+
+func _on_health_depleted():
+	queue_free()	
 
 func _physics_process(delta: float) -> void:
 	# 1. 刷新内部计时器和炸弹数量
