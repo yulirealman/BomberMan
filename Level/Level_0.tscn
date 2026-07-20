@@ -210,3 +210,4 @@ position = Vector2(272, 200)
 
 [node name="Enemy" parent="." unique_id=1999285649 instance=ExtResource("6_l00tq")]
 position = Vector2(304, 144)
+max_bombs = 5
