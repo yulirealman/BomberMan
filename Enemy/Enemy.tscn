@@ -17,6 +17,11 @@ modulate = Color(1, 0.25882354, 0.21176471, 1)
 scale = Vector2(0.25, 0.25)
 collision_layer = 32768
 script = ExtResource("1_e6d4v")
+speed = 125.0
+max_bombs = 5
+bomb_power = 2
+think_time = 0.3
+bomb_drop_cooldown = 0.2
 bomb_scene = ExtResource("2_fkela")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=752141904]

@@ -22,6 +22,9 @@ script = ExtResource("1_j7kct")
 
 [node name="Enemy" parent="." unique_id=1999285649 instance=ExtResource("2_iyc1c")]
 position = Vector2(80, 112)
+max_bombs = 7
+bomb_power = 5
+bomb_scene = null
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=861364178]
 z_index = -1
