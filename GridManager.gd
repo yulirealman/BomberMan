@@ -6,6 +6,7 @@ var _grid_objects: Dictionary = {}
 const GRID_SIZE = 32
 signal object_registered(grid_pos: Vector2i, obj: Node2D)
 signal object_unregistered(grid_pos: Vector2i, obj: Node2D)
+
 # 在 GridManager.gd 中新增以下變數和函數
 var player_grid_pos: Vector2i = Vector2i.ZERO
 
