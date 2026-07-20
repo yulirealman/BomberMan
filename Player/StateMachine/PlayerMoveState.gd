@@ -27,6 +27,7 @@ func physics_update(_delta: float) -> void:
 		player.position,
 		GridManager.GRID_SIZE
 	)
+	GridManager.update_player_pos(player.grid_pos)
 
 	
 

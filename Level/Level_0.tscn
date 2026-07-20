@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://diygwv781k3tm" path="res://Player/Player.tscn" id="4_ftmnl"]
 [ext_resource type="PackedScene" uid="uid://buo5usmy57fj4" path="res://Box/Box0/Box.tscn" id="5_7sgg7"]
 [ext_resource type="PackedScene" uid="uid://bsv8n4jctavxc" path="res://Wall/Wall0/UnbreakWall.tscn" id="6_g35fc"]
+[ext_resource type="PackedScene" uid="uid://r7bwl4xlp7vi" path="res://Enemy/Enemy.tscn" id="6_l00tq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uh7m"]
 texture = ExtResource("2_ukj0c")
@@ -30,10 +31,6 @@ y_sort_enabled = true
 [node name="Players" type="Node2D" parent="." unique_id=393671456]
 y_sort_enabled = true
 
-[node name="Player2" parent="Players" unique_id=654998926 instance=ExtResource("4_ftmnl")]
-position = Vector2(368, 264)
-player_id = 1
-
 [node name="Player" parent="Players" unique_id=422340817 instance=ExtResource("4_ftmnl")]
 position = Vector2(96, 136)
 
@@ -46,29 +43,11 @@ position = Vector2(208, 136)
 [node name="Box9" parent="BoxesContainer" unique_id=979804026 instance=ExtResource("5_7sgg7")]
 position = Vector2(176, 104)
 
-[node name="Box10" parent="BoxesContainer" unique_id=888211928 instance=ExtResource("5_7sgg7")]
-position = Vector2(144, 136)
-
 [node name="Box11" parent="BoxesContainer" unique_id=1601033083 instance=ExtResource("5_7sgg7")]
 position = Vector2(176, 136)
 
-[node name="Box" parent="BoxesContainer" unique_id=218275274 instance=ExtResource("5_7sgg7")]
-position = Vector2(144, 168)
-
-[node name="Box2" parent="BoxesContainer" unique_id=883205370 instance=ExtResource("5_7sgg7")]
-position = Vector2(240, 104)
-
-[node name="Box3" parent="BoxesContainer" unique_id=1893939667 instance=ExtResource("5_7sgg7")]
-position = Vector2(240, 136)
-
 [node name="Box4" parent="BoxesContainer" unique_id=372873958 instance=ExtResource("5_7sgg7")]
 position = Vector2(208, 104)
-
-[node name="Box5" parent="BoxesContainer" unique_id=901377009 instance=ExtResource("5_7sgg7")]
-position = Vector2(144, 104)
-
-[node name="Box7" parent="BoxesContainer" unique_id=1500308911 instance=ExtResource("5_7sgg7")]
-position = Vector2(144, 104)
 
 [node name="Box14" parent="BoxesContainer" unique_id=1741033116 instance=ExtResource("5_7sgg7")]
 position = Vector2(48, 40)
@@ -166,9 +145,6 @@ position = Vector2(176, 168)
 [node name="Box12" parent="BoxesContainer" unique_id=1322270906 instance=ExtResource("5_7sgg7")]
 position = Vector2(208, 168)
 
-[node name="Box13" parent="BoxesContainer" unique_id=169467672 instance=ExtResource("5_7sgg7")]
-position = Vector2(240, 168)
-
 [node name="WallsContainer" type="Node2D" parent="." unique_id=30104249]
 y_sort_enabled = true
 
@@ -231,3 +207,6 @@ position = Vector2(304, 200)
 
 [node name="UnbreakWall8" parent="WallsContainer" unique_id=766024773 instance=ExtResource("6_g35fc")]
 position = Vector2(272, 200)
+
+[node name="Enemy" parent="." unique_id=1999285649 instance=ExtResource("6_l00tq")]
+position = Vector2(304, 168)

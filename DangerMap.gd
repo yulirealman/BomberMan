@@ -48,14 +48,6 @@ func _is_wall(pos: Vector2i) -> bool:
 	var obj = GridManager.get_object_at(pos)
 	return obj is Wall
 
-# 為了簡單起見，如果炸彈消失，我們直接重算整個地圖（或者你也可以精確計算減去該炸彈的危險區）
-func _clear_all_danger() -> void:
-	_danger_map.clear()
-	# 重新遍歷所有炸彈並恢復危險區
-	for pos in GridManager._grid_objects:
-		var obj = GridManager.get_object_at(pos)
-		if obj is Bomb:
-			_update_danger_zone(obj.explosion_grids, 1)
 
 
 
@@ -89,26 +81,28 @@ func is_cell_safe(pos: Vector2i) -> bool:
 	return _danger_map.get(pos, 0) == 0
 
 
-# 在 DangerMap.gd 中新增
+# 在 DangerMap.gd 中修改
+# ==========================================
+# 🛑 【核心修正】找尋安全點時過濾障礙物
+# ==========================================
 func find_nearest_safe_spot(current_pos: Vector2i) -> Vector2i:
 	var queue: Array[Vector2i] = [current_pos]
 	var visited: Dictionary = {current_pos: true}
 	
-	# 簡單的廣度優先搜索 (BFS)
 	while queue.size() > 0:
 		var pos = queue.pop_front()
 		
-		# 如果找到安全點，回傳
-		if is_cell_safe(pos):
+		if is_cell_safe(pos) and pos != current_pos:
 			return pos
 		
-		# 檢查上下左右
 		for dir in [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]:
 			var neighbor = pos + dir
 			if not visited.has(neighbor):
-				# 確保不會走出地圖邊界 (這裡假設地圖範圍是 12x10，可以改為變數)
 				if neighbor.x >= 0 and neighbor.x < 12 and neighbor.y >= 0 and neighbor.y < 10:
-					visited[neighbor] = true
-					queue.push_back(neighbor)
+					# 【修正】必須確認該格子不是牆壁或箱子！
+					var obj = GridManager.get_object_at(neighbor)
+					if not (obj is Wall or obj is Box):
+						visited[neighbor] = true
+						queue.push_back(neighbor)
 	
-	return current_pos # 如果找不到，留在原地
+	return current_pos
