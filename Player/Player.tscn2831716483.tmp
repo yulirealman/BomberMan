@@ -310,15 +310,9 @@ collision_mask = 2147483648
 script = ExtResource("1_e80uo")
 data = ExtResource("2_6ysni")
 
-[node name="StateMachine" type="Node" parent="." unique_id=131730020 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("6_6ysni")
-initial_state = NodePath("Idle")
-
-[node name="Move" type="Node" parent="StateMachine" unique_id=1984332511]
-script = ExtResource("7_vlldt")
-
-[node name="Idle" type="Node" parent="StateMachine" unique_id=176110370]
-script = ExtResource("5_s1rgi")
+[node name="HealthComponent" type="Node" parent="." unique_id=1354814999]
+script = ExtResource("4_e80uo")
+metadata/_custom_type_script = "uid://cpamelf0njewp"
 
 [node name="HurtBoxComponent" type="Area2D" parent="." unique_id=359548599 node_paths=PackedStringArray("health_component")]
 script = ExtResource("5_tdg3f")
@@ -341,5 +335,12 @@ autoplay = "walk_down"
 y_sort_enabled = true
 shape = SubResource("CircleShape2D_s1rgi")
 
-[node name="HealthComponent" type="Node" parent="." unique_id=2085999173]
-script = ExtResource("4_e80uo")
+[node name="StateMachine" type="Node2D" parent="." unique_id=987176921 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_6ysni")
+initial_state = NodePath("Idle")
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=1984332511]
+script = ExtResource("7_vlldt")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=176110370]
+script = ExtResource("5_s1rgi")

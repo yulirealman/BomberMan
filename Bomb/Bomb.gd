@@ -81,6 +81,9 @@ func explode():
 	# 生成火花（直接使用预计算好的格子来生成，性能更好）
 	generate_explosion(GridManager.GRID_SIZE)
 	
+	
+
+	
 	queue_free()
 
 

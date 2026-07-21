@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_4imru")
 item_type = 2
-value = 25.0
+value = 10.0
 sprite_texture = ExtResource("2_iapi8")
 metadata/_custom_type_script = "uid://1rd8auguq02o"

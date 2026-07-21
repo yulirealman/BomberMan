@@ -35,7 +35,7 @@ func generate_item() -> void:
 	# 准备用来注入的资源
 	var selected_data: ItemData = null
 
-	if roll < 0.35:
+	if roll < 0.5:
 		# 0.0 到 0.40 之间 (40% 几率)，保持为 null，也就是 empty
 		print("运气不好，箱子是空的")
 		return 
@@ -43,7 +43,7 @@ func generate_item() -> void:
 		# 0.40 到 0.70 之间 (30% 几率)
 		selected_data = explosion_up_data
 		print("决定生成：Power Item")
-	elif roll< 0.8:
+	elif roll< 0.75:
 		selected_data = speed_up_data
 		print("决定生成：Speed Item")
 	else:

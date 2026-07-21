@@ -52,6 +52,7 @@ func _on_position_changed(new_world_pos: Vector2):
 	
 
 func _on_health_depleted():
+
 	queue_free()
 
 

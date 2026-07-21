@@ -18,6 +18,7 @@ scale = Vector2(0.25, 0.25)
 collision_layer = 32768
 script = ExtResource("1_fkela")
 bomb_power = 2
+aggro_chance = 0.4
 bomb_drop_cooldown = 0.25
 bomb_scene = ExtResource("2_fkela")
 

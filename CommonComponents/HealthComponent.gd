@@ -15,6 +15,7 @@ func _ready():
 
 
 func damage(amount: int):
+
 	if amount <= 0 or current_health <= 0:
 		return
 
