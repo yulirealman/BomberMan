@@ -143,7 +143,6 @@ func play_directional_animation(anim_base_name: String) -> void:
 		
 	sprite.play(anim_base_name + "_" + dir_suffix)
 
-
 # ==================== 🛠️ 新增：商业化屏幕坐标钳制 ====================
 func clamp_to_screen() -> void:
 	# 1. 获取当前游戏视口的实际像素大小（支持多分辨率自适应）

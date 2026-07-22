@@ -1,0 +1,35 @@
+[33md85eae9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #1 from yulirealman/32bit_version
+[33m14ba7d7[m[33m ([m[1;31morigin/32bit_version[m[33m, [m[1;32m32bit_version[m[33m)[m added comments for palyer
+[33m9f8a7aa[m bug fixed
+[33mdf80e93[m ui init
+[33ma40fa97[m tunning game
+[33m66f2058[m good version before refactor
+[33ma3ec564[m Update Level_0.tscn
+[33m5712cd4[m enemy completed
+[33m9c5fe38[m good version for enemy
+[33m323be4b[m Update Enemy.gd
+[33mc69efb3[m nightmare ai enemy implemented by gemini
+[33m4f5ffec[m created danger map for foundation of enemy
+[33maeb6e49[m refactor GridManager
+[33me1555f6[m tunning game
+[33m30e1fce[m tuning game
+[33m3f4eceb[m test
+[33m0458013[m test
+[33m7f5c766[m updated to 32 pixel size
+[33ma33982d[m refactor code
+[33m6e193df[m limit player movement area
+[33mcf43a45[m Revert "best version for now"
+[33m58445bf[m best version for now
+[33meeb119d[m player display infront of bomb
+[33m8a73165[m modified parameters for box drop
+[33m28cf96b[m speed up item implement
+[33m4d801b0[m create item generic scene
+[33mf296f91[m fix bombs layer and mask
+[33m964d7c2[m update players layer and mask
+[33m301eab3[m Revert "Update Level.gd"
+[33m0c7adb2[m Update Level.gd
+[33m5896726[m refactored file structure
+[33m4086d5a[m 1
+[33m8fb6b46[m Update Bomb.gd
+[33m146c0e2[m init project
+[33md0a8504[m Initial commit
