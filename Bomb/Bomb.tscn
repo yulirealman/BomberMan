@@ -126,4 +126,3 @@ animation = &"idle"
 autoplay = "idle"
 
 [connection signal="area_exited" from="ListenerComponent" to="." method="_on_listener_component_area_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
