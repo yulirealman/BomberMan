@@ -1,21 +1,26 @@
 [gd_scene format=3 uid="uid://r7bwl4xlp7vi"]
 
-[ext_resource type="Script" uid="uid://b365l03knl0bj" path="res://Enemy/Enemy.gd" id="1_e6d4v"]
+[ext_resource type="Script" uid="uid://cvcmrfw325tye" path="res://Enemy/BstarEnemy.gd" id="1_fkela"]
+[ext_resource type="PackedScene" uid="uid://y6elyiu2lj6q" path="res://Bomb/Bomb.tscn" id="2_fkela"]
 [ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="2_qp131"]
 [ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://CommonComponents/HurtBoxComponent.gd" id="3_6do27"]
 [ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://CommonComponents/HealthComponent.gd" id="4_rvmyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nxwx"]
-size = Vector2(112, 112)
+size = Vector2(96, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52xpa"]
 size = Vector2(126, 118)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1999285649]
 modulate = Color(1, 0.25882354, 0.21176471, 1)
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.25, 0.25)
 collision_layer = 32768
-script = ExtResource("1_e6d4v")
+script = ExtResource("1_fkela")
+bomb_power = 2
+aggro_chance = 0.4
+bomb_drop_cooldown = 0.25
+bomb_scene = ExtResource("2_fkela")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=752141904]
 texture = ExtResource("2_qp131")
@@ -34,3 +39,7 @@ shape = SubResource("RectangleShape2D_52xpa")
 [node name="HealthComponent" type="Node" parent="." unique_id=1433924042]
 script = ExtResource("4_rvmyp")
 metadata/_custom_type_script = "uid://cpamelf0njewp"
+
+[node name="ThinkTimer" type="Timer" parent="." unique_id=90495179]
+wait_time = 0.3
+autostart = true

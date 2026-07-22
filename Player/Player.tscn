@@ -73,8 +73,8 @@
 [ext_resource type="Texture2D" uid="uid://pem8n2qm8su" path="res://Player/Sprite/Movement/Up/0015.png" id="71_0kfou"]
 [ext_resource type="Texture2D" uid="uid://bv40arlmwt7rp" path="res://Player/Sprite/Movement/Up/0016.png" id="72_b5gfp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(13.333333, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wdt0"]
+radius = 11.666666
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqhi1"]
 shader = ExtResource("8_7wdt0")
@@ -302,7 +302,6 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1rgi"]
-radius = 3.0
 
 [node name="Player" type="CharacterBody2D" unique_id=654998926]
 z_index = 1
@@ -321,29 +320,26 @@ script = ExtResource("7_vlldt")
 [node name="Idle" type="Node" parent="StateMachine" unique_id=176110370]
 script = ExtResource("5_s1rgi")
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1354814999]
-script = ExtResource("4_e80uo")
-metadata/_custom_type_script = "uid://cpamelf0njewp"
-
 [node name="HurtBoxComponent" type="Area2D" parent="." unique_id=359548599 node_paths=PackedStringArray("health_component")]
 script = ExtResource("5_tdg3f")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" unique_id=270817286]
-position = Vector2(0, -3)
 scale = Vector2(0.6, 0.6)
-shape = SubResource("RectangleShape2D_g4v7s")
+shape = SubResource("CircleShape2D_7wdt0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1586725397]
 texture_filter = 3
 material = SubResource("ShaderMaterial_wqhi1")
-position = Vector2(0, -8)
-scale = Vector2(0.25, 0.25)
+position = Vector2(0, -13)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lefbv")
 animation = &"walk_up"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=211869716]
 y_sort_enabled = true
-position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_s1rgi")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2085999173]
+script = ExtResource("4_e80uo")

@@ -1,3 +1,4 @@
+class_name Box
 extends AnimatableBody2D
 
 @onready var health_component:HealthComponent = $HealthComponent
@@ -10,7 +11,9 @@ extends AnimatableBody2D
 func _ready() -> void:
 
 	health_component.health_depleted.connect(_on_death)
-	GameManager.box_dict[MyUtility.grid_pos(position,GameManager.GRID_SIZE)] = true
+	#GameManager.box_dict[GridManager.world_to_cell(position,GridManager.GRID_SIZE)] = true
+	GridManager.register_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE), self)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,7 +22,10 @@ func _process(delta: float) -> void:
 func _on_death() -> void:
 
 	generate_item()
-	GameManager.box_dict.erase(MyUtility.grid_pos(position,GameManager.GRID_SIZE))
+	#GameManager.box_dict.erase(GridManager.world_to_cell(position,GridManager.GRID_SIZE))
+	GridManager.unregister_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE),self)
+
+
 	queue_free()
 	
 func generate_item() -> void:
@@ -29,7 +35,7 @@ func generate_item() -> void:
 	# 准备用来注入的资源
 	var selected_data: ItemData = null
 
-	if roll < 0.35:
+	if roll < 0.5:
 		# 0.0 到 0.40 之间 (40% 几率)，保持为 null，也就是 empty
 		print("运气不好，箱子是空的")
 		return 
@@ -37,7 +43,7 @@ func generate_item() -> void:
 		# 0.40 到 0.70 之间 (30% 几率)
 		selected_data = explosion_up_data
 		print("决定生成：Power Item")
-	elif roll< 0.8:
+	elif roll< 0.75:
 		selected_data = speed_up_data
 		print("决定生成：Speed Item")
 	else:
@@ -56,7 +62,7 @@ func generate_item() -> void:
 			spawned_item.item_data = selected_data
 			
 			# 定位与挂载逻辑
-			spawned_item.global_position = global_position
+			spawned_item.global_position = GridManager.world_to_cell_center(global_position, GridManager.GRID_SIZE)
 			
 			# 极其关键：用 call_deferred 确保在箱子销毁的同一帧，道具能被安全地加进场景
 			get_parent().call_deferred("add_child", spawned_item)

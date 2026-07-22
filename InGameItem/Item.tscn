@@ -15,11 +15,9 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=858433127]
 texture_filter = 5
-scale = Vector2(0.5, 0.5)
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1462709746]
 script = ExtResource("3_1s7ww")
-max_health = 2.0
 metadata/_custom_type_script = "uid://cpamelf0njewp"
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=803582811 node_paths=PackedStringArray("health_component")]
@@ -32,5 +30,3 @@ metadata/_custom_type_script = "uid://brtfmqbrp80ay"
 visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_g4v7s")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

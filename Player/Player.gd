@@ -1,81 +1,98 @@
 class_name Player
 extends CharacterBody2D
 
-#data
+#放入res存储的data文件
 @export var data:PlayerData
-var duplicated_data:PlayerData
 
-#componenet
+#存放玩家id, 用来本地pvp
+@export var player_id: int = 0
+
+#player自带的componenet
 @onready var health_component: HealthComponent = $HealthComponent
-@onready var state_machine: StateMachine = $StateMachine # 引入狀態機
+@onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D # 👈 1. 引入动画节点
 
-@export var player_id: int = 0
-# 动态生成的动作名称
+
+# 变量用来拼接input名称与player id
 var action_left: String
 var action_right: String
 var action_up: String
 var action_down: String
 var action_bomb: String
-
-#local variable
-var grid_pos: Vector2i
-var curr_bomb_amount: int
 var face_direction: Vector2 = Vector2.DOWN
-# 🔴 修改 1：信号增加第一个参数，声明为 Player 类型，把自身传递给 Level 监听器
-signal bomb_placement_requested(player: Player, at_grid_pos: Vector2i)
 
-func _ready():
-	
+#复制一份plaeyr的res data
+var duplicated_data:PlayerData
+
+#存放一个临时的在游戏中的信息
+var grid_pos: Vector2i
+
+var curr_bomb_amount: int
+
+
+
+
+func _ready():	
+	#拼接对应玩家的input
 	action_left = "Left" + str(player_id)
 	action_right = "Right" + str(player_id)
 	action_up = "Up" + str(player_id)
 	action_down = "Down" + str(player_id)
 	action_bomb = "PlaceBomb" + str(player_id)
 	
+	#加载player res资源
 	if data == null:
 		push_error("未配置 PlayerData 資源！")
 		return
+	
+	#复制资源
 	duplicated_data = data.duplicate()
+	
+	#把这个复制的资源广播到event bus，方便ui调用
+	Events.player_data_initialized.emit(duplicated_data)
 
+	
+	#初始化临时信息
 	curr_bomb_amount = 0 # 刚出生时场上炸弹数为 0
 	add_to_group("Player")
-	grid_pos = MyUtility.grid_pos(position,16)
+	grid_pos = GridManager.world_to_cell(position,GridManager.GRID_SIZE)
+
+	#链接health组件
 	health_component.health_depleted.connect(_on_health_depleted)
 
+	#初始化状态机，并把自己的引用传过去
 	state_machine.init(self)
 	
+
+	
+	
+
+#当血量为0， 
 func _on_health_depleted():
+	#广播玩家死亡
+	Events.player_dead.emit(self)
+	#从树里清除
 	queue_free()
-
-
 
 
 
 func register_bomb_placed(bomb: Node) -> void:
 	curr_bomb_amount += 1
-	# 這裡依然保持你優雅的信號回充設計
-	if bomb.has_signal("exploded"):
-		bomb.exploded.connect(_on_bomb_exploded) 
+	# 如果参数为炸弹
+	if bomb.is_in_group("Bomb"):
+		#接受炸弹爆炸时所发出的信号
+		bomb.exploded.connect(_on_bomb_exploded)
 		
-# 炸弹爆炸后的回充回调
+#炸弹爆炸后的回充回调
 func _on_bomb_exploded() -> void:
+	#基本等于curr_bomb-=1 只不过不会变复数最小为0
 	curr_bomb_amount = max(0, curr_bomb_amount - 1)
 	print("A bomb exploded. Recharged 1 bomb. Bombs remaining in Field:", curr_bomb_amount)
 
-## 吃到“加范围”道具时调用
-#func update_explosion_distance():
-	#duplicated_data.explosion_distance += 1
-#
-#
-## 吃到“加数量上限”道具时调用
-#func update_bomb_amount():
-	#duplicated_data.max_bomb_amount += 1
-	#print("Bomb capacity increased! New maximum:", duplicated_data.max_bomb_amount)
 
 
 
-# 在 Player.gd 中新增此函數
+#修改复制的player res的信息
 func apply_item_effect(item: ItemData) -> void:
 	print("玩家 %d 拾取了道具: %s" % [player_id, item.item_name])
 	
@@ -131,12 +148,12 @@ func play_directional_animation(anim_base_name: String) -> void:
 func clamp_to_screen() -> void:
 	# 1. 获取当前游戏视口的实际像素大小（支持多分辨率自适应）
 	var view_size = get_viewport_rect().size
-	print(view_size)
+
 	# 2. 设置安全边距（防止角色的半个身体或贴图边缘穿出屏幕）
 	# 既然你的格子是 16x16，通常角色碰撞体半径约为 6 到 7 像素
 	var margin: float = 7.0 
 	
 	# 3. 强行把 global_position 锁死在屏幕可见区域内
-	global_position.x = clamp(global_position.x, margin, 192 - margin)
-	global_position.y = clamp(global_position.y, margin+6, 160 - margin)
+	global_position.x = clamp(global_position.x, margin, view_size.x - margin)
+	global_position.y = clamp(global_position.y, margin+6, view_size.y - margin)
 # =====================================================================

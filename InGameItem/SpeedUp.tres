@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c50p44atpsx4r"]
 
 [ext_resource type="Script" uid="uid://1rd8auguq02o" path="res://InGameItem/ItemData.gd" id="1_4imru"]
-[ext_resource type="Texture2D" uid="uid://dk7scpe3nrno1" path="res://InGameItem/speedup.png" id="2_iapi8"]
+[ext_resource type="Texture2D" uid="uid://br2iypsal2hg4" path="res://InGameItem/speedup.png" id="2_iapi8"]
 
 [resource]
 script = ExtResource("1_4imru")
 item_type = 2
-value = 25.0
+value = 10.0
 sprite_texture = ExtResource("2_iapi8")
 metadata/_custom_type_script = "uid://1rd8auguq02o"

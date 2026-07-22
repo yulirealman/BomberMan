@@ -21,10 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://dlpejopm3iwjt" path="res://Bomb/Srpite/Bomb/0016.png" id="18_gjuko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 6.0
+radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57qmd"]
-radius = 5.0
+radius = 12.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gkht1"]
 shader = ExtResource("4_vmn8j")
@@ -99,27 +99,30 @@ script = ExtResource("1_a4im0")
 explosion_scene = ExtResource("2_lmso4")
 
 [node name="ListenerComponent" type="Area2D" parent="." unique_id=1134981927]
+y_sort_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ListenerComponent" unique_id=462206360]
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="Timer" type="Timer" parent="." unique_id=1543378464]
 wait_time = 2.1999999999999997
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=1052078946]
+y_sort_enabled = true
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_57qmd")
 
 [node name="Visual" type="Node2D" parent="." unique_id=819704293]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" unique_id=1496367284]
+y_sort_enabled = true
 texture_filter = 3
 texture_repeat = 2
 material = SubResource("ShaderMaterial_gkht1")
-position = Vector2(0, -1)
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_a2ckm")
 animation = &"idle"
 autoplay = "idle"
 
 [connection signal="area_exited" from="ListenerComponent" to="." method="_on_listener_component_area_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

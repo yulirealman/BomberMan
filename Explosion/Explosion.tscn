@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cwmfc758gnp3i"]
 
 [ext_resource type="Script" uid="uid://dylhdmcg50qar" path="res://Explosion/Explosion.gd" id="1_n4djn"]
-[ext_resource type="Texture2D" uid="uid://ckl8mjg15d4f1" path="res://Explosion/Explosion.png" id="1_oxoqp"]
+[ext_resource type="Texture2D" uid="uid://ug4yjv4nf4l4" path="res://Explosion/explosion.png" id="2_3wlyo"]
 [ext_resource type="Script" uid="uid://d3xltc01cb0f4" path="res://CommonComponents/HitBoxComponent.gd" id="3_n4djn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(16, 16)
+size = Vector2(28, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(16, 16)
+size = Vector2(25, 25)
 
 [node name="Explosion" type="Area2D" unique_id=1662772446]
 script = ExtResource("1_n4djn")
@@ -18,10 +18,10 @@ shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041251526]
 texture_filter = 5
-texture = ExtResource("1_oxoqp")
+texture = ExtResource("2_3wlyo")
 
 [node name="Timer" type="Timer" parent="." unique_id=2010398335]
-wait_time = 0.05
+wait_time = 0.02
 
 [node name="HitBoxComponent" type="Area2D" parent="." unique_id=1428731500]
 script = ExtResource("3_n4djn")

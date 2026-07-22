@@ -6,6 +6,9 @@ class_name HurtboxComponent
 
 func take_damage(damage):
 
+
 	if health_component:
 
 		health_component.damage(damage)
+	else:
+		print("HURT BOX DID NOT ASSIGN HEALTH COMPONENT")
