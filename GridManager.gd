@@ -19,7 +19,7 @@ func _on_player_pos_changed(player:Player, new_pos: Vector2i) -> void:
 	player_grid_pos = new_pos
 
 func get_player_pos() -> Vector2i:
-	print("THIS IS PLAYER POSITION",player_grid_pos)
+	#print("THIS IS PLAYER POSITION",player_grid_pos)
 	return player_grid_pos
 
 func has_bomb_at(grid_pos: Vector2i) -> bool:
