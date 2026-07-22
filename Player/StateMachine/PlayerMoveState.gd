@@ -27,7 +27,8 @@ func physics_update(_delta: float) -> void:
 		player.position,
 		GridManager.GRID_SIZE
 	)
-	GridManager.update_player_pos(player.grid_pos)
+	#GridManager.update_player_pos(player.grid_pos)
+	Events.player_pos_changed.emit(player,player.grid_pos)
 
 	
 
@@ -40,4 +41,4 @@ func physics_update(_delta: float) -> void:
 
 		if player.curr_bomb_amount < player.duplicated_data.max_bomb_amount:
 
-			player.bomb_placement_requested.emit(player,player.grid_pos)
+			Events.bomb_placement_requested.emit(player,player.grid_pos)

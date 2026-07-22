@@ -27,7 +27,7 @@ var _last_urgency_level: int = -1
 func _ready() -> void:
 	cell = GridManager.world_to_cell(position, GridManager.GRID_SIZE)
 	print("placed bomb at ", cell)
-	add_to_group("Bombs")
+	add_to_group("Bomb")
 	
 	GridManager.register_object(cell, self)
 	

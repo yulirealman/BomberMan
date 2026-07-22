@@ -5,3 +5,12 @@ signal player_data_initialized(data: PlayerData)
 
 # 你甚至可以把之前的信号也移到这里，实现更彻底的解耦
 # signal bomb_amount_changed(new_value: int)
+
+
+# 🔴 修改 1：信号增加第一个参数，声明为 Player 类型，把自身传递给 Level 监听器
+signal bomb_placement_requested(player: Player, at_grid_pos: Vector2i)
+
+signal player_pos_changed(player:Player,  at_grid_pos: Vector2i)
+
+
+signal player_dead(player:Player)

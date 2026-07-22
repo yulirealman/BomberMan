@@ -18,7 +18,7 @@ func _ready() -> void:
 		# 3. 如果轉換成功（確保它不是普通的 Node2D，而是你的 Player 實例）
 		if p != null:
 			# 綁定信號，將當前這個 player 傳進回調函數中
-			p.bomb_placement_requested.connect(_on_player_bomb_placement_requested)
+			Events.bomb_placement_requested.connect(_on_player_bomb_placement_requested)
 			print("成功綁定玩家信號: ", p.name)
 	
 	

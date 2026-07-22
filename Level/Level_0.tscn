@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c4j2adbbo3lw2" path="res://UI/explosion_attribute.png" id="16_28pbi"]
 [ext_resource type="Texture2D" uid="uid://ciflp3q4l3xhn" path="res://UI/shoes_attribute.png" id="17_hfu1p"]
 [ext_resource type="Texture2D" uid="uid://x8h48h8ur4tl" path="res://UI/menu.png" id="18_28pbi"]
+[ext_resource type="PackedScene" uid="uid://r7bwl4xlp7vi" path="res://Enemy/Enemy.tscn" id="19_hfu1p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uh7m"]
 texture = ExtResource("2_ukj0c")
@@ -296,3 +297,6 @@ position = Vector2(240, 296)
 
 [node name="UnbreakWall20" parent="WallsContainer" unique_id=112745547 instance=ExtResource("6_ukj0c")]
 position = Vector2(208, 296)
+
+[node name="Enemy" parent="." unique_id=1999285649 instance=ExtResource("19_hfu1p")]
+position = Vector2(272, 144)

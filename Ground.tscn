@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://cq8si5wy6ejav"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ulns0"]
-load_path = "res://.godot/imported/Ground.png-a1e7165254050f6723978f7d8348ce00.ctex"
-
-[node name="Ground" type="Node2D" unique_id=272161479]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1474831340]
-texture = SubResource("CompressedTexture2D_ulns0")

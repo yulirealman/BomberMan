@@ -10,10 +10,16 @@ signal object_unregistered(grid_pos: Vector2i, obj: Node2D)
 # 在 GridManager.gd 中新增以下變數和函數
 var player_grid_pos: Vector2i = Vector2i.ZERO
 
-func update_player_pos(new_pos: Vector2i) -> void:
+func _ready() -> void:
+	Events.player_pos_changed.connect(_on_player_pos_changed)
+
+
+func _on_player_pos_changed(player:Player, new_pos: Vector2i) -> void:
+	#print("playername",player.name, "and its pos", new_pos)
 	player_grid_pos = new_pos
 
 func get_player_pos() -> Vector2i:
+	print("THIS IS PLAYER POSITION",player_grid_pos)
 	return player_grid_pos
 
 func has_bomb_at(grid_pos: Vector2i) -> bool:
