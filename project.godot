@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 GridManager="*uid://bs8cpb8kvh1uk"
 DangerMap="*uid://hh7pkfahreiw"
+Events="*uid://b83korhr8b8p7"
 
 [debug]
 
@@ -103,4 +104,7 @@ Print={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=3
 rendering_device/driver.windows="d3d12"
+textures/decals/filter=4
+textures/light_projectors/filter=4

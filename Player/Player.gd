@@ -37,6 +37,7 @@ func _ready():
 		push_error("未配置 PlayerData 資源！")
 		return
 	duplicated_data = data.duplicate()
+	Events.player_data_initialized.emit(duplicated_data)
 
 	curr_bomb_amount = 0 # 刚出生时场上炸弹数为 0
 	add_to_group("Player")
