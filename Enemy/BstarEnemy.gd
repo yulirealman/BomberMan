@@ -92,7 +92,7 @@ func _decide_next_action(my_grid_pos: Vector2i) -> void:
 		return
 		
 	var player_pos = GridManager.get_player_pos()
-	
+
 	# 策略A：狙击玩家
 	if randf() < aggro_chance and _can_plant_bomb():
 		var snipe_pos = _find_attack_position(my_grid_pos, player_pos)

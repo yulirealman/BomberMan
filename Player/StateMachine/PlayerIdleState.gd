@@ -1,5 +1,8 @@
 class_name PlayerIdleState extends State
 
+# 极其干净的写法：每次调用 player，自动把 actor 转成 Player
+var player: Player:
+	get: return actor as Player
 
 # Called when the node enters the scene tree for the first time.
 func enter() -> void:

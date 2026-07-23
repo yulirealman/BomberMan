@@ -2,6 +2,13 @@
 class_name PlayerMoveState
 extends State
 
+
+# 极其干净的写法：每次调用 player，自动把 actor 转成 Player
+var player: Player:
+	get: return actor as Player
+
+
+#override 
 func enter() -> void:
 	print("Player Entered Move State")
 		

@@ -1,4 +1,3 @@
-# state_machine.gd (掛載在 StateMachine 節點上)
 class_name StateMachine
 extends Node
 
@@ -7,14 +6,14 @@ extends Node
 var current_state: State
 var states: Dictionary = {}
 
-func init(player: Player) -> void:
-
-	# 初始化：把所有子節點（狀態）找出來，並把 player 引用塞給它們
+# 参数改为接收泛型的 actor
+func init(actor: Node) -> void:
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
-			child.player = player
-			child.state_machine = self # <--- 新增這一行，把狀態機自己注入進去
+			child.actor = actor # 把泛型实体注入给状态
+			child.state_machine = self
+			
 	if initial_state:
 		current_state = initial_state
 		current_state.enter()

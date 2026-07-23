@@ -300,3 +300,12 @@ position = Vector2(208, 296)
 
 [node name="Enemy" parent="." unique_id=1999285649 instance=ExtResource("19_hfu1p")]
 position = Vector2(272, 144)
+aggro_chance = 0.7
+
+[node name="Enemy2" parent="." unique_id=1234285270 instance=ExtResource("19_hfu1p")]
+position = Vector2(136, 160)
+aggro_chance = 0.7
+
+[node name="Enemy3" parent="." unique_id=1513359675 instance=ExtResource("19_hfu1p")]
+position = Vector2(16, 112)
+aggro_chance = 0.7
