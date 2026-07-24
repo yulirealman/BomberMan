@@ -125,6 +125,7 @@ var active_bombs_count: Dictionary = {}
 func _ready() -> void:
 	# 监听带有 max_bombs 参数的放炸弹请求
 	Events.bomb_placement_requested.connect(_on_bomb_placement_requested)
+
 	print("BombManager 已就绪，正在全局监听放炸弹请求...")
 
 
@@ -158,7 +159,7 @@ func _on_bomb_placement_requested(player_id: int, world_pos: Vector2, power: int
 	# 5. 生产炸弹实体
 	var bomb = EntityFactory.create_entity(default_bomb_id)
 	bomb.position = GridUtils.cell_to_world(cell)
-	
+	bomb.grid_pos = cell
 	if bomb.has_method("setup"):
 		bomb.setup(player_id, power)
 		
@@ -179,8 +180,19 @@ func _on_bomb_placement_requested(player_id: int, world_pos: Vector2, power: int
 # ==========================================
 func _on_bomb_exploded_requested(center_cell: Vector2i, power: int, _player_id: int) -> void:
 	# 1. 炸弹爆炸前，把自己从网格里清理掉，避免挡住十字火焰
-	grid_manager.remove_entity(center_cell) 
+	#grid_manager.remove_entity(center_cell) 
 	
+	# 1. 查表：从 GridManager 拿到这个格子的完整数据包
+	var cell_data = grid_manager.get_cell_data(center_cell)
+	# 2. 如果这格子里真的有炸弹，命令它“自我毁灭”
+	if not cell_data.is_empty() and cell_data.has("node") and cell_data["node"] != null:
+		var bomb_node = cell_data["node"]
+		
+		# 面向对象的精髓：我不管你是啥，只要你有 explode 方法，你就炸
+		if bomb_node.has_method("explode"):
+			bomb_node.explode() 
+	else:
+		push_warning("BombManager: 坐标 ", center_cell, " 没有可引爆的炸弹实体！")
 	# 2. 计算爆炸影响的格子
 	var affected_cells = _calculate_explosion_area(center_cell, power)
 	
@@ -232,7 +244,6 @@ func _calculate_explosion_area(start_cell: Vector2i, power: int) -> Array[Vector
 					
 				2: # 软箱子
 					result.append(target_cell)
-					grid_manager.remove_entity(target_cell)
 					if entity_node and entity_node.has_method("destroy"):
 						entity_node.destroy() 
 					break

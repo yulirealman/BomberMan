@@ -20,4 +20,5 @@ signal bomb_placement_failed(player_id: int)
 signal player_pos_changed(player:Player,  at_grid_pos: Vector2i)
 
 
-signal player_dead(player:Player)
+# 定义消息协议：坐标、被毁的是什么实体
+signal grid_entity_destroyed(grid_pos: Vector2i, entity_id: int, entity_type:String)

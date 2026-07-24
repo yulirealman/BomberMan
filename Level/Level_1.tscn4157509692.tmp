@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bfdfj20iusn0b"]
+
+[ext_resource type="Script" uid="uid://baqrx56kan1f6" path="res://Level/LevelBuilder.gd" id="1_4ouur"]
+[ext_resource type="Script" uid="uid://8vhnvutjcpbk" path="res://Level/BombManager.gd" id="3_oqwaf"]
+[ext_resource type="Script" uid="uid://d0nthcixtavvx" path="res://MyGridManager.gd" id="4_1xqaq"]
+[ext_resource type="PackedScene" uid="uid://cwmfc758gnp3i" path="res://Explosion/Explosion.tscn" id="4_4ouur"]
+[ext_resource type="Texture2D" uid="uid://butoqhcve5g0u" path="res://Floor/floor.png" id="4_sfyu6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uh7m"]
+texture = ExtResource("4_sfyu6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6uqi0"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_8uh7m")
+
+[node name="Level_1" type="Node2D" unique_id=390676663]
+y_sort_enabled = true
+script = ExtResource("1_4ouur")
+allow_stretch_distortion = true
+
+[node name="FloorTileMap" type="TileMapLayer" parent="." unique_id=861364178]
+z_index = -1
+tile_set = SubResource("TileSet_6uqi0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=362906871]
+
+[node name="EntityLayer" type="Node2D" parent="." unique_id=1810357252]
+y_sort_enabled = true
+
+[node name="BombManager" type="Node2D" parent="." unique_id=1819886845 node_paths=PackedStringArray("entity_layer")]
+script = ExtResource("3_oqwaf")
+entity_layer = NodePath("../EntityLayer")
+explosion_scene = ExtResource("4_4ouur")
+
+[node name="GridManager" type="Node2D" parent="." unique_id=67236267]
+script = ExtResource("4_1xqaq")

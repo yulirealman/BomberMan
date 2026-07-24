@@ -29,6 +29,13 @@ var grid_pos: Vector2i
 
 var curr_bomb_amount: int
 
+
+# 留空，等待工厂在生成时注入
+var entity_id: int 
+var entity_type: String
+
+
+
 func setup(params: Dictionary) -> void:
 	if params.has("player_index"):
 		player_id = params["player_index"]
@@ -82,7 +89,7 @@ func _unhandled_input(event: InputEvent) -> void:
 #当血量为0， 
 func _on_health_depleted():
 	#广播玩家死亡
-	Events.player_dead.emit(self)
+	Events.grid_entity_destroyed.emit(grid_pos, entity_id, entity_type)
 	#从树里清除
 	queue_free()
 

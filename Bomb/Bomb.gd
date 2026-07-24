@@ -12,11 +12,19 @@ var explosion_distance: int = 1
 var owner_player_id: int = 99
 var is_exploded := false
 
+
+# 留空，等待工厂在生成时注入
+var entity_id: int 
+var entity_type: String
+var grid_pos: Vector2i
+
 func setup(p_id: int, power: int) -> void:
 	owner_player_id = p_id
 	explosion_distance = power
 
 func _ready() -> void:
+	print("Bomb generated at",grid_pos," entity_type is ",entity_type, "entity_id is ",entity_id)
+
 	cell = GridUtils.world_to_cell(position) # 用上你完美的静态方法
 	collider.disabled = true
 	timer.start(3.0)
@@ -31,7 +39,7 @@ func explode() -> void:
 	## 让玩家回充炸弹数量 (假设也是通过 EventBus 或者直接发信号)
 	print("🔴 炸弹爆炸！向总线发送回充信号，认定的主人 ID 是: ", owner_player_id)
 	Events.player_bomb_freed.emit(owner_player_id)
-	
+	Events.grid_entity_destroyed.emit(grid_pos, entity_id, entity_type)
 	queue_free()
 
 func _on_timer_timeout() -> void:

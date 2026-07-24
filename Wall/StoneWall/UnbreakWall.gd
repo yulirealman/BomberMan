@@ -1,13 +1,15 @@
 class_name Wall
 extends AnimatableBody2D
 
+# 留空，等待工厂在生成时注入
+var entity_id: int 
+var entity_type: String
+var grid_pos: Vector2i
+
 
 func _ready() -> void:
-
-	#GameManager.wall_dict[GridManager.world_to_cell(position,GridManager.GRID_SIZE)] = true
-	GridManager.register_object(GridManager.world_to_cell(position, GridManager.GRID_SIZE),self)
-
-
+	pass
+	
 func destory() -> void:
 	pass
 	

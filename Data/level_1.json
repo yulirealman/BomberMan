@@ -16,9 +16,9 @@
 		{"type": "player_start", "x": 13, "y": 11},
 		{"type": "player_start", "x": 1, "y": 11},
 		{"type": "player_start", "x": 13, "y": 1},
-		{"type": "ghost", "x": 1, "y": 11},
-		{"type": "slime", "x": 1, "y": 1},
-		{"type": "slime", "x": 8, "y": 6}
+		{"type": "ghosts", "x": 1, "y": 11},
+		{"type": "slimes", "x": 1, "y": 1},
+		{"type": "slimes", "x": 8, "y": 6}
 	],
 	"item_drop_rates": {
 		"bomb_up": 0.3,

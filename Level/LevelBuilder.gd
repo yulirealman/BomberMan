@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var map_json_path: String = "res://Data/level_3.json"
+@export var map_json_path: String = "res://Data/level_1.json"
 
 @onready var floor_map: TileMapLayer = $FloorTileMap
 
@@ -92,7 +92,7 @@ func build_level_from_json(path: String):
 				#add_child(entity)
 				#grid_manager.register_cell(grid_pos, tile_id, entity)
 				entity.position = GridUtils.cell_to_world(grid_pos, int(c_width))
-				
+				entity.grid_pos = grid_pos
 				entity_layer.add_child(entity)
 				grid_manager.register_cell(grid_pos, tile_id, entity)
 	
@@ -113,7 +113,7 @@ func build_level_from_json(path: String):
 	# 6. 初始化摄像机坐标
 	_init_camera()
 	
-	#grid_manager.print_grid_data()
+
 	print("地图构建完成！Camera进入纯算法自适应监控模式")
 
 
