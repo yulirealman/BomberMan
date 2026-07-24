@@ -13,7 +13,7 @@ extends Node2D
 
 # 网格管理器
 var grid_manager: MyGridManager
-
+@onready var bomb_manager: BombManager = $BombManager
 # ==========================================
 # 状态缓存：用于绕过生命周期，纯算法监控自适应缩放
 # ==========================================
@@ -66,7 +66,9 @@ func build_level_from_json(path: String):
 
 	# 3. 初始化数据网格
 	grid_manager = MyGridManager.new(cols, rows, Vector2(c_width, c_height))
-
+	# 【核心】：把刚刚建好的网格实例，塞给炸弹管理器！
+	if bomb_manager:
+		bomb_manager.grid_manager = grid_manager
 	# 4. 生成地图实体
 	var map_array = data["map_layout"]
 	for y in range(rows):

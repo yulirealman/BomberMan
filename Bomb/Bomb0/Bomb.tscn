@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://y6elyiu2lj6q"]
 
 [ext_resource type="Script" uid="uid://pu4akh3snle3" path="res://Bomb/Bomb.gd" id="1_a4im0"]
-[ext_resource type="PackedScene" uid="uid://cwmfc758gnp3i" path="res://Explosion/Explosion.tscn" id="2_lmso4"]
 [ext_resource type="Shader" uid="uid://divqvdaqrsa1a" path="res://Shader/CommonShader.gdshader" id="4_vmn8j"]
 [ext_resource type="Texture2D" uid="uid://cdbel2og4yuki" path="res://Bomb/Bomb0/Srpite/Bomb/0001.png" id="4_w5701"]
 [ext_resource type="Texture2D" uid="uid://c71cfijh3fac0" path="res://Bomb/Bomb0/Srpite/Bomb/0002.png" id="5_rf5p5"]
@@ -96,7 +95,6 @@ animations = [{
 y_sort_enabled = true
 collision_layer = 2147483648
 script = ExtResource("1_a4im0")
-explosion_scene = ExtResource("2_lmso4")
 
 [node name="ListenerComponent" type="Area2D" parent="." unique_id=1134981927]
 y_sort_enabled = true
@@ -126,3 +124,4 @@ animation = &"idle"
 autoplay = "idle"
 
 [connection signal="area_exited" from="ListenerComponent" to="." method="_on_listener_component_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

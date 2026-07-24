@@ -8,7 +8,14 @@ signal player_data_initialized(data: PlayerData)
 
 
 # 🔴 修改 1：信号增加第一个参数，声明为 Player 类型，把自身传递给 Level 监听器
-signal bomb_placement_requested(player_id: int, world_pos: Vector2)
+signal bomb_placement_requested(player_id: int, world_pos: Vector2, power: int, bomb_amount:int)
+
+# 炸弹爆炸，通知对应玩家回充可用数量 (Bomb -> Player)
+signal player_bomb_freed(player_id: int)
+
+
+# 声明放炸弹失败的信号
+signal bomb_placement_failed(player_id: int)
 
 signal player_pos_changed(player:Player,  at_grid_pos: Vector2i)
 

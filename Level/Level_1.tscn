@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://baqrx56kan1f6" path="res://Level/LevelBuilder.gd" id="1_4ouur"]
 [ext_resource type="Script" uid="uid://8vhnvutjcpbk" path="res://Level/BombManager.gd" id="3_oqwaf"]
+[ext_resource type="Script" uid="uid://d0nthcixtavvx" path="res://MyGridManager.gd" id="4_1xqaq"]
+[ext_resource type="PackedScene" uid="uid://cwmfc758gnp3i" path="res://Explosion/Explosion.tscn" id="4_4ouur"]
 [ext_resource type="Texture2D" uid="uid://butoqhcve5g0u" path="res://Floor/floor.png" id="4_sfyu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uh7m"]
@@ -30,3 +32,7 @@ y_sort_enabled = true
 [node name="BombManager" type="Node2D" parent="." unique_id=1819886845 node_paths=PackedStringArray("entity_layer")]
 script = ExtResource("3_oqwaf")
 entity_layer = NodePath("../EntityLayer")
+explosion_scene = ExtResource("4_4ouur")
+
+[node name="GridManager" type="Node2D" parent="." unique_id=67236267]
+script = ExtResource("4_1xqaq")

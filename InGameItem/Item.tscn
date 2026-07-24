@@ -18,6 +18,7 @@ texture_filter = 5
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1462709746]
 script = ExtResource("3_1s7ww")
+max_health = 2
 metadata/_custom_type_script = "uid://cpamelf0njewp"
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=803582811 node_paths=PackedStringArray("health_component")]

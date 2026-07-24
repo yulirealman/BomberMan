@@ -43,10 +43,3 @@ func physics_update(_delta: float) -> void:
 	if direction == Vector2.ZERO:
 		state_machine.change_to("idle")
 	
-	# 2. 處理放炸彈
-	if Input.is_action_just_pressed(player.action_bomb):
-
-		if player.curr_bomb_amount < player.duplicated_data.max_bomb_amount:
-
-			Events.bomb_placement_requested.emit(player.player_id,player.position)
-			print("玩家放了炸弹，在",	player.grid_pos)
