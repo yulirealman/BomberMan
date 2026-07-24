@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var map_json_path: String = "res://Data/level_1.json"
+@export var map_json_path: String = "res://Data/level_2.json"
 
 @onready var floor_map: TileMapLayer = $FloorTileMap
 

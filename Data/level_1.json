@@ -1,8 +1,8 @@
 {
 	"_comment_meta": "===== 关卡基础信息 =====",
 	"level_info": {
-		"level_id": 3,
-		"level_name": "Grassland 1-3",
+		"level_id": 1,
+		"level_name": "Gensis",
 		"time_limit_seconds": 240,
 		"bgm_track": "theme_01.ogg"
 	},
