@@ -13,7 +13,7 @@ extends Node2D
 # 网格管理器
 var grid_manager: MyGridManager
 @onready var bomb_manager: BombManager = $BombManager
-
+@onready var item_manager: ItemManager = $ItemManager # <--- 新增这行，假设你在场景树里建了这个节点
 # ==========================================
 # 状态缓存：用于绕过生命周期，纯算法监控自适应缩放
 # ==========================================
@@ -57,10 +57,24 @@ func build_level_from_json(path: String):
 	var rows = int(config["rows"])
 
 	# 3. 初始化数据网格
+	# 3. 初始化数据网格
 	grid_manager = MyGridManager.new(cols, rows, Vector2(c_width, c_height))
+	
 	# 【核心】：把刚刚建好的网格实例，塞给炸弹管理器！
 	if bomb_manager:
 		bomb_manager.grid_manager = grid_manager
+		
+	# 【新增】：给 ItemManager 注入它需要的所有上下文！
+	if item_manager:
+		item_manager.grid_manager = grid_manager
+		item_manager.entity_layer = entity_layer
+		item_manager.cell_width = int(c_width)
+		
+		# 将 JSON 里的掉落配置直接塞给 ItemManager
+		if data.has("item_drop_rates"):
+			item_manager.drop_rates = data["item_drop_rates"]
+		else:
+			push_warning("LevelBuilder: JSON 中没有找到 item_drop_rates 节点。")
 		
 	# 4. 生成地图实体 (1xxx 与 0)
 	var map_array = data["map_layout"]

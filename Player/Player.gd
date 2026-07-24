@@ -64,8 +64,7 @@ func _ready():
 	
 	#初始化临时信息
 	curr_bomb_amount = duplicated_data.max_bomb_amount
-	add_to_group("Player")
-	grid_pos = GridManager.world_to_cell(position,GridManager.GRID_SIZE)
+	add_to_group("player")
 
 	#链接health组件
 	health_component.health_depleted.connect(_on_health_depleted)
@@ -122,29 +121,25 @@ func _on_bomb_placement_failed(id: int) -> void:
 		curr_bomb_amount += 1 # 把被吞掉的炸弹加回来！
 		print("❌ 炸弹放置被拒，已成功退回！当前剩余: %d" % curr_bomb_amount)
 
-#修改复制的player res的信息
-func apply_item_effect(item: ItemData) -> void:
-	print("玩家 %d 拾取了道具: %s" % [player_id, item.item_name])
-	
-	match item.item_type:
-		ItemData.ItemType.BOMB_UP:
-			# 以前你寫的 update_bomb_amount()
-			# 這裡我們用 item.value 進行動態加成，更靈活！
-			duplicated_data.max_bomb_amount += int(item.value)
-			print("炸彈上限增加至: ", duplicated_data.max_bomb_amount)
-			
-		ItemData.ItemType.EXPLOSION_UP:
-			# 以前你寫的 update_explosion_distance()
-			duplicated_data.explosion_distance += int(item.value)
-			print("爆炸範圍增加至: ", duplicated_data.explosion_distance)
-			
-		ItemData.ItemType.SPEED_UP:
-			# 輕鬆新增原本沒有的“速度鞋”道具
-			duplicated_data.speed += item.value
-			print("移動速度增加至: ", duplicated_data.speed)
-			
-		_:
-			push_warning("未處理的道具類型！")
+
+func add_bomb_capacity(amount: int) -> void:
+	duplicated_data.max_bomb_amount += amount
+	print("Player获得炸弹提升！当前最大炸弹数: ", duplicated_data.max_bomb_amount)
+
+
+func add_explosion_power(amount: int) -> void:
+	duplicated_data.explosion_distance += amount
+	print("Player获得火力提升！当前火力: ", duplicated_data.explosion_distance)
+
+
+func add_speed(amount: float) -> void:
+	duplicated_data.speed += amount
+	print("Player获得移速提升！当前移速: ", duplicated_data.speed)
+
+
+
+
+
 
 
 # for animation

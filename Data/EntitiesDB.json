@@ -24,12 +24,17 @@
 		"_desc": "增加同时放置炸弹的最大数量"
 	},
 	"2002": {
-		"name": "FireUp",
+		"name": "ExplosionUp",
 		"type": "item",
-		"path": "res://InGameItem/FireUp.tscn",
+		"path": "res://InGameItem/ExplosionUp.tscn",
 		"_desc": "增加炸弹的十字爆炸威力范围"
 	},
-
+	"2003": {
+		"name": "SpeedUp",
+		"type": "item",
+		"path": "res://InGameItem/SpeedUp.tscn",
+		"_desc": "增加玩家速度"
+	},
 	"_comment_group_3": "--- 3000~3999: 敌对生物 (Enemies) ---",
 	"3001": {
 		"name": "Redot",

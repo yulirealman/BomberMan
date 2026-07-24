@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkmgvacf1tyuw"
-path="res://.godot/imported/explosionup.png-460ff7d45306a5ea1a083d772b4b64a8.ctex"
+uid="uid://blth8mg36em8g"
+path="res://.godot/imported/bombup.png-1b0e50e6d15bc30cd13e7ca979424871.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://InGameItem/explosionup.png"
-dest_files=["res://.godot/imported/explosionup.png-460ff7d45306a5ea1a083d772b4b64a8.ctex"]
+source_file="res://InGameItem/Srpites/bombup.png"
+dest_files=["res://.godot/imported/bombup.png-1b0e50e6d15bc30cd13e7ca979424871.ctex"]
 
 [params]
 

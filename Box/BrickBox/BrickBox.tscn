@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd7bro7noy7kr" path="res://Box/BrickBox/Box.gd" id="1_bybq8"]
 [ext_resource type="Script" uid="uid://brtfmqbrp80ay" path="res://CommonComponents/HurtBoxComponent.gd" id="2_jm3vu"]
-[ext_resource type="PackedScene" uid="uid://34a2olelt2x0" path="res://InGameItem/Item.tscn" id="2_kd1th"]
+[ext_resource type="PackedScene" uid="uid://34a2olelt2x0" path="res://InGameItem/BombUp.tscn" id="2_kd1th"]
 [ext_resource type="Resource" uid="uid://bxd8yons4fa5h" path="res://InGameItem/ExplosionUp.tres" id="3_qvldy"]
 [ext_resource type="Script" uid="uid://cpamelf0njewp" path="res://CommonComponents/HealthComponent.gd" id="3_speaj"]
 [ext_resource type="Resource" uid="uid://1qnk1bmn7qvf" path="res://InGameItem/BombUp.tres" id="4_fxs5g"]

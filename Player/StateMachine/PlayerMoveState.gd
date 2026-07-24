@@ -30,13 +30,6 @@ func physics_update(_delta: float) -> void:
 	# ===================================================================
 
 
-	player.grid_pos = GridManager.world_to_cell(
-		player.position,
-		GridManager.GRID_SIZE
-	)
-	#GridManager.update_player_pos(player.grid_pos)
-	Events.player_pos_changed.emit(player,player.grid_pos)
-
 	
 
 	 #如果沒有輸入，可以切換回 Idle 狀態（如果想要分得更細的話）
