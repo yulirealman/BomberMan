@@ -29,7 +29,9 @@ var grid_pos: Vector2i
 
 var curr_bomb_amount: int
 
-
+func setup(params: Dictionary) -> void:
+	if params.has("player_index"):
+		player_id = params["player_index"]
 
 
 func _ready():	

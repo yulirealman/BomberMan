@@ -48,4 +48,5 @@ func physics_update(_delta: float) -> void:
 
 		if player.curr_bomb_amount < player.duplicated_data.max_bomb_amount:
 
-			Events.bomb_placement_requested.emit(player,player.grid_pos)
+			Events.bomb_placement_requested.emit(player.player_id,player.position)
+			print("玩家放了炸弹，在",	player.grid_pos)

@@ -1,0 +1,44 @@
+{
+	"level_info": {
+		"level_id": 3,
+		"level_name": "Symmetric Heart",
+		"time_limit_seconds": 150,
+		"bgm_track": "theme_heart.ogg"
+	},
+
+	"grid_config": {
+		"cell_width": 32,
+		"cell_height": 32,
+		"columns": 12,
+		"rows": 10
+	},
+
+	"spawn_points": {
+		"player_1": {"x": 1, "y": 1},
+		"player_2": {"x": 10, "y": 8},
+		"enemies": [
+			{"type": "slime", "x": 10, "y": 1},
+			{"type": "slime", "x": 1, "y": 8}
+		]
+	},
+
+	"item_drop_rates": {
+		"bomb_up": 0.4,
+		"fire_range_up": 0.4,
+		"speed_up": 0.1,
+		"empty": 0.1
+	},
+
+	"map_layout": [
+		[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+		[1, 0, 0, 2, 2, 1, 1, 2, 2, 2, 0, 1],
+		[1, 0, 1, 2, 2, 2, 2, 2, 2, 1, 0, 1],
+		[1, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 1],
+		[1, 2, 2, 1, 0, 0, 0, 0, 1, 2, 2, 1],
+		[1, 2, 2, 1, 0, 0, 0, 0, 1, 2, 2, 1],
+		[1, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 1],
+		[1, 0, 1, 2, 2, 2, 2, 2, 2, 1, 0, 1],
+		[1, 0, 2, 2, 2, 1, 1, 2, 2, 0, 0, 1],
+		[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+	]
+}

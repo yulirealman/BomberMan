@@ -8,7 +8,7 @@ signal player_data_initialized(data: PlayerData)
 
 
 # 🔴 修改 1：信号增加第一个参数，声明为 Player 类型，把自身传递给 Level 监听器
-signal bomb_placement_requested(player: Player, at_grid_pos: Vector2i)
+signal bomb_placement_requested(player_id: int, world_pos: Vector2)
 
 signal player_pos_changed(player:Player,  at_grid_pos: Vector2i)
 

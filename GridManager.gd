@@ -89,10 +89,10 @@ func print_grid() -> void:
 	print("============")
 
 
-func _process(_delta: float) -> void:
-	# 按下键盘上的 F9 键，打印一次当前网格状态
-	if Input.is_action_just_pressed("Print"): # 可以在输入映射里配个专属按键
-		print_grid()
+#func _process(_delta: float) -> void:
+	## 按下键盘上的 F9 键，打印一次当前网格状态
+	#if Input.is_action_just_pressed("Print"): # 可以在输入映射里配个专属按键
+		#print_grid()
 
 
 # 假设你的世界原点和偏移是标准的，或者根据你的项目实际网格原点调整

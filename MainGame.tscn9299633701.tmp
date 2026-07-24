@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c88mriw4t61gf"]
+
+[ext_resource type="PackedScene" uid="uid://bfdfj20iusn0b" path="res://Level/Level_1.tscn" id="1_3tbxw"]
+[ext_resource type="Script" uid="uid://bgw6cmu38etwx" path="res://MainGame.gd" id="1_e3m3f"]
+
+[node name="MainGame" type="Control" unique_id=221275882]
+layout_mode = 3
+anchor_right = 0.71300006
+anchor_bottom = 0.587
+offset_right = 344.3999
+offset_bottom = 371.7
+script = ExtResource("1_e3m3f")
+game_aspect_ratio = 1.15
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1365354365]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.71300006
+anchor_bottom = 0.578
+offset_left = 140.8825
+offset_right = -134.08258
+offset_bottom = -15.300018
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1783043603]
+handle_input_locally = false
+size = Vector2i(580, 504)
+render_target_update_mode = 4
+
+[node name="Level_1" parent="SubViewportContainer/SubViewport" unique_id=390676663 instance=ExtResource("1_3tbxw")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2056212504]
+layout_mode = 0
+offset_left = 862.4
+offset_right = 1078.0
+offset_bottom = 561.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1834980480]
+layout_mode = 0
+offset_top = 504.9
+offset_right = 862.4
+offset_bottom = 561.0
+color = Color(1, 0, 0, 1)

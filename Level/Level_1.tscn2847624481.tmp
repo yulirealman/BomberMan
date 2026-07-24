@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bfdfj20iusn0b"]
 
 [ext_resource type="Script" uid="uid://baqrx56kan1f6" path="res://Level/LevelBuilder.gd" id="1_4ouur"]
-[ext_resource type="Script" uid="uid://8vhnvutjcpbk" path="res://Level/BombManager.gd" id="3_oqwaf"]
 [ext_resource type="Texture2D" uid="uid://butoqhcve5g0u" path="res://Floor/floor.png" id="4_sfyu6"]
+[ext_resource type="PackedScene" uid="uid://diygwv781k3tm" path="res://Player/Player.tscn" id="6_7slqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uh7m"]
 texture = ExtResource("4_sfyu6")
@@ -16,17 +16,12 @@ sources/0 = SubResource("TileSetAtlasSource_8uh7m")
 [node name="Level_1" type="Node2D" unique_id=390676663]
 y_sort_enabled = true
 script = ExtResource("1_4ouur")
-allow_stretch_distortion = true
+
+[node name="Player" parent="." unique_id=654998926 instance=ExtResource("6_7slqs")]
+position = Vector2(248, 224)
 
 [node name="FloorTileMap" type="TileMapLayer" parent="." unique_id=861364178]
 z_index = -1
 tile_set = SubResource("TileSet_6uqi0")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=362906871]
-
-[node name="EntityLayer" type="Node2D" parent="." unique_id=1810357252]
-y_sort_enabled = true
-
-[node name="BombManager" type="Node2D" parent="." unique_id=1819886845 node_paths=PackedStringArray("entity_layer")]
-script = ExtResource("3_oqwaf")
-entity_layer = NodePath("../EntityLayer")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1504239487]

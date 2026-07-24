@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://c8txogy6iw6jy" path="res://Level/Level.gd" id="1_l00tq"]
 [ext_resource type="Texture2D" uid="uid://butoqhcve5g0u" path="res://Floor/floor.png" id="2_ukj0c"]
 [ext_resource type="PackedScene" uid="uid://diygwv781k3tm" path="res://Player/Player.tscn" id="4_ftmnl"]
-[ext_resource type="PackedScene" uid="uid://buo5usmy57fj4" path="res://Box/Box0/Box.tscn" id="5_7sgg7"]
-[ext_resource type="PackedScene" uid="uid://bsv8n4jctavxc" path="res://Wall/Wall0/UnbreakWall.tscn" id="6_g35fc"]
-[ext_resource type="PackedScene" uid="uid://cgor31ipvppe8" path="res://Wall/Wall0/UnbreakWallBottom.tscn" id="6_ukj0c"]
+[ext_resource type="PackedScene" uid="uid://buo5usmy57fj4" path="res://Box/BrickBox/BrickBox.tscn" id="5_7sgg7"]
+[ext_resource type="PackedScene" uid="uid://bsv8n4jctavxc" path="res://Wall/StoneWall/StoneWall.tscn" id="6_g35fc"]
+[ext_resource type="PackedScene" uid="uid://cgor31ipvppe8" path="res://Wall/StoneWall/UnbreakWallBottom.tscn" id="6_ukj0c"]
 [ext_resource type="Texture2D" uid="uid://bew6jwq6uj3nj" path="res://UI/1.png" id="7_5jrc7"]
 [ext_resource type="Script" uid="uid://brsqdm0l2vpo1" path="res://Level/CanvasLayer.gd" id="8_0kcq2"]
 [ext_resource type="Texture2D" uid="uid://cvs5trunvd54t" path="res://UI/2.png" id="8_eqg4g"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c4j2adbbo3lw2" path="res://UI/explosion_attribute.png" id="16_28pbi"]
 [ext_resource type="Texture2D" uid="uid://ciflp3q4l3xhn" path="res://UI/shoes_attribute.png" id="17_hfu1p"]
 [ext_resource type="Texture2D" uid="uid://x8h48h8ur4tl" path="res://UI/menu.png" id="18_28pbi"]
-[ext_resource type="PackedScene" uid="uid://r7bwl4xlp7vi" path="res://Enemy/Enemy.tscn" id="19_hfu1p"]
+[ext_resource type="PackedScene" uid="uid://r7bwl4xlp7vi" path="res://Enemy/Redot.tscn" id="19_hfu1p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uh7m"]
 texture = ExtResource("2_ukj0c")
