@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d0nthcixtavvx" path="res://MyGridManager.gd" id="4_1xqaq"]
 [ext_resource type="PackedScene" uid="uid://cwmfc758gnp3i" path="res://Explosion/Explosion.tscn" id="4_4ouur"]
 [ext_resource type="Texture2D" uid="uid://butoqhcve5g0u" path="res://Floor/floor.png" id="4_sfyu6"]
+[ext_resource type="Script" uid="uid://b4h0a8o4xhtii" path="res://Level/ItemManager.gd" id="6_b2ndw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uh7m"]
 texture = ExtResource("4_sfyu6")
@@ -36,3 +37,6 @@ explosion_scene = ExtResource("4_4ouur")
 
 [node name="GridManager" type="Node2D" parent="." unique_id=67236267]
 script = ExtResource("4_1xqaq")
+
+[node name="ItemManager" type="Node2D" parent="." unique_id=1245017057]
+script = ExtResource("6_b2ndw")

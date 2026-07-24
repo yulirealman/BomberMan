@@ -1,118 +1,9 @@
-#class_name BombManager
-#extends Node2D
-#
-#@export var entity_layer: Node2D 
-#@export var default_bomb_id: int = 997
-## 如果你有爆炸特效场景，记得暴露出来
-#@export var explosion_scene: PackedScene 
-#
-#var grid_manager: MyGridManager # 接收 LevelBuilder 传来的实例
-#
-#
-#func _ready() -> void:
-	## 确保信号参数带上 power (火力值)，不然没法算距离
-	#Events.bomb_placement_requested.connect(_on_bomb_placement_requested)
-	#print("BombManager 已就绪，正在全局监听放炸弹请求...")
-#
-#
-## ==========================================
-## 阶段 1：放置炸弹
-## ==========================================
-#func _on_bomb_placement_requested(player_id: int, world_pos: Vector2, power: int) -> void:
-	## 1. 算出目标格子
-	#var cell = GridUtils.world_to_cell(world_pos)
-	#
-	## 2. 【防抖查重】：如果这个格子里已经有东西了（不管是墙、箱子还是另一颗炸弹），绝对不放！
-	#if not grid_manager.is_cell_empty(cell):
-		#print("格子已被占用，无法放置炸弹！")
-		## 🟢 【核心修复】通知对应的玩家：放炸弹失败，把炸弹退给我！
-		#Events.bomb_placement_failed.emit(player_id)
-		#return
-#
-	#print("收到玩家 %d 的放炸弹请求，坐标: %s" % [player_id, world_pos])
-	#
-	## 3. 生产炸弹
-	#var bomb = EntityFactory.create_entity(default_bomb_id)
-	#bomb.position = GridUtils.cell_to_world(cell)
-	#
-	#if bomb.has_method("setup"):
-		#bomb.setup(player_id, power)
-		#
-	## 【核心】：监听这颗炸弹倒计时结束的求救信号
-	#bomb.exploded_requested.connect(_on_bomb_exploded_requested)
-	#
-	#entity_layer.add_child(bomb)
-	#
-	## 4. 【占坑】：告诉 GridManager 这个格子里多了一颗炸弹
-	#grid_manager.register_cell(cell, default_bomb_id, bomb)
-#
-#
-## ==========================================
-## 阶段 2：引爆结算
-## ==========================================
-#func _on_bomb_exploded_requested(center_cell: Vector2i, power: int, _player_id: int) -> void:
-	## 1. 炸弹爆炸前，必须把自己从网格里清理掉，不然它的本体会挡住十字火焰！
-	#grid_manager.remove_entity(center_cell) 
-	#
-	## 2. 调用你的完美算法推演格子
-	#var affected_cells = _calculate_explosion_area(center_cell, power)
-	#
-	## 3. 生成火焰特效
-	#if explosion_scene != null:
-		#for target_cell in affected_cells:
-			#var fire = explosion_scene.instantiate()
-			#fire.position = GridUtils.cell_to_world(target_cell)
-			#entity_layer.add_child(fire)
-#
-#
-## ==========================================
-## 阶段 3：推演算法
-## ==========================================
-#func _calculate_explosion_area(start_cell: Vector2i, power: int) -> Array[Vector2i]:
-	#var result: Array[Vector2i] = []
-	#result.append(start_cell)
-	#
-	#var directions = [Vector2i.RIGHT, Vector2i.LEFT, Vector2i.UP, Vector2i.DOWN]
-	#
-	#for dir in directions:
-		#for i in range(1, power + 1):
-			#var target_cell = start_cell + (dir * i)
-			#
-			#if grid_manager.is_cell_empty(target_cell):
-				#result.append(target_cell)
-				#continue
-				#
-			#var cell_data = grid_manager.get_cell_data(target_cell)
-			#var type_id = cell_data.get("type", 0)
-			#var entity_node = cell_data.get("node")
-			#
-			#match type_id:
-				#1: # 硬墙
-					#break 
-					#
-				#2: # 软箱子
-					#result.append(target_cell)
-					## 【重要】必须从网格数据中移除该实体，否则格子会卡死
-					#grid_manager.remove_entity(target_cell)
-					#if entity_node and entity_node.has_method("destroy"):
-						#entity_node.destroy() 
-					#break
-					#
-				## 修复 ID 匹配问题，这里直接使用上面的配置常量
-				#default_bomb_id: 
-					#if entity_node and entity_node.has_method("explode"):
-						#entity_node.call_deferred("explode")
-					#break
-					#
-				#_: 
-					#break
-			#
-	#return result
+
 class_name BombManager
 extends Node2D
 
 @export var entity_layer: Node2D 
-@export var default_bomb_id: int = 997
+@export var default_bomb_id: int = 4002
 @export var explosion_scene: PackedScene 
 
 var grid_manager: MyGridManager 
@@ -218,7 +109,7 @@ func _on_bomb_freed(player_id: int) -> void:
 
 
 # ==========================================
-# 阶段 4：推演算法（保持不变）
+# 阶段 4：推演算法（商业级重构版：鸭子类型驱动）
 # ==========================================
 func _calculate_explosion_area(start_cell: Vector2i, power: int) -> Array[Vector2i]:
 	var result: Array[Vector2i] = []
@@ -230,30 +121,37 @@ func _calculate_explosion_area(start_cell: Vector2i, power: int) -> Array[Vector
 		for i in range(1, power + 1):
 			var target_cell = start_cell + (dir * i)
 			
+			# 1. 空地判定：火焰畅通无阻，继续蔓延
 			if grid_manager.is_cell_empty(target_cell):
 				result.append(target_cell)
 				continue
 				
+			# 2. 障碍判定：获取网格中的实体
 			var cell_data = grid_manager.get_cell_data(target_cell)
-			var type_id = cell_data.get("type", 0)
 			var entity_node = cell_data.get("node")
 			
-			match type_id:
-				1: # 硬墙
-					break 
+			# 3. 核心路由：纯行为判定 (不再依赖任何 type_id)
+			if is_instance_valid(entity_node):
+				
+				# 行为 A: 连锁反应 (炸弹)
+				if entity_node.has_method("explode"):
+					result.append(target_cell) # 炸弹所在的格子需要渲染火焰
+					entity_node.call_deferred("explode")
+					break # 炸弹吸收了冲击波，阻挡火焰继续穿透
 					
-				2: # 软箱子
-					result.append(target_cell)
-					if entity_node and entity_node.has_method("destroy"):
-						entity_node.destroy() 
-					break
+				# 行为 B: 可破坏物 (软砖块、木桶等)
+				elif entity_node.has_method("destroy"):
+					result.append(target_cell) # 砖块被炸毁的格子需要渲染火焰
+					entity_node.destroy() 
+					break # 砖块吸收了冲击波，阻挡火焰继续穿透
 					
-				default_bomb_id: 
-					if entity_node and entity_node.has_method("explode"):
-						entity_node.call_deferred("explode")
-					break
+				# 行为 C: 不可破坏物 (硬石墙)
+				else:
+					# 既没有引爆机制，也没有摧毁机制，说明是无敌的实体
+					break # 火焰直接被阻挡，不加入 result，不向后蔓延
 					
-				_: 
-					break
-			
+			else:
+				# 兜底防御编程：格子不为空，但获取不到有效实体 (比如纯 Tile 占位)
+				break 
+				
 	return result

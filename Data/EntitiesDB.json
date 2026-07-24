@@ -1,28 +1,54 @@
 {
-	"1": {
+	"_comment_global": "===== 实体数据库配置 =====",
+	"_comment_rules": "号段规则: 1xxx静态环境, 2xxx掉落道具, 3xxx敌对生物, 4xxx玩家与生成物",
+	
+	"_comment_group_1": "--- 1000~1999: 静态环境 (Environment) ---",
+	"1001": {
 		"name": "StoneWall",
 		"type": "obstacle",
-		"path": "res://Wall/StoneWall/StoneWall.tscn"
+		"path": "res://Wall/StoneWall/StoneWall.tscn",
+		"_desc": "不可摧毁的石头墙"
 	},
-	"2": {
+	"1002": {
 		"name": "BrickBox",
 		"type": "destructible",
-		"path": "res://Box/BrickBox/BrickBox.tscn"
+		"path": "res://Box/BrickBox/BrickBox.tscn",
+		"_desc": "可被炸毁的软砖块，销毁后触发 ItemManager 掉落判定"
 	},
-	"997":{
-		"name":"DefaultBomb",
-		"type":"Bomb",
-		"path":"res://Bomb/Bomb0/Bomb.tscn"
+
+	"_comment_group_2": "--- 2000~2999: 掉落道具 (Items) ---",
+	"2001": {
+		"name": "BombUp",
+		"type": "item",
+		"path": "res://InGameItem/BombUp.tscn",
+		"_desc": "增加同时放置炸弹的最大数量"
 	},
-	
-	"998":{
-		"name":"Redot",
-		"type":"Enemy",
-		"path":"res://Enemy/Redot.tscn"
+	"2002": {
+		"name": "FireUp",
+		"type": "item",
+		"path": "res://InGameItem/FireUp.tscn",
+		"_desc": "增加炸弹的十字爆炸威力范围"
 	},
-	"999":{
+
+	"_comment_group_3": "--- 3000~3999: 敌对生物 (Enemies) ---",
+	"3001": {
+		"name": "Redot",
+		"type": "enemy",
+		"path": "res://Enemy/Redot.tscn",
+		"_desc": "基础红色小怪，寻路逻辑简单"
+	},
+
+	"_comment_group_4": "--- 4000~4999: 核心生成物 (Player & Core) ---",
+	"4001": {
 		"name": "DefaultPlayer",
-		"type":"Player",
-		"path":"res://Player/Player.tscn"
+		"type": "player",
+		"path": "res://Player/Player.tscn",
+		"_desc": "玩家控制的实体"
+	},
+	"4002": {
+		"name": "DefaultBomb",
+		"type": "bomb",
+		"path": "res://Bomb/Bomb0/Bomb.tscn",
+		"_desc": "玩家放置的基础炸弹"
 	}
 }

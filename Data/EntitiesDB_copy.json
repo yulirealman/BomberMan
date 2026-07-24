@@ -1,0 +1,28 @@
+{
+	"1": {
+		"name": "StoneWall",
+		"type": "obstacle",
+		"path": "res://Wall/StoneWall/StoneWall.tscn"
+	},
+	"2": {
+		"name": "BrickBox",
+		"type": "destructible",
+		"path": "res://Box/BrickBox/BrickBox.tscn"
+	},
+	"998":{
+		"name":"DefaultBomb",
+		"type":"Bomb",
+		"path":"res://Bomb/Bomb0/Bomb.tscn"
+	},
+	
+	"997":{
+		"name":"Redot",
+		"type":"Enemy",
+		"path":"res://Enemy/Redot.tscn"
+	},
+	"999":{
+		"name": "DefaultPlayer",
+		"type":"Player",
+		"path":"res://Player/Player.tscn"
+	}
+}
